@@ -1,0 +1,41 @@
+@mixin btn {
+    padding: 9px 33px 11px 32px;
+    border: 2px solid #fff;
+    border-radius: 24px;
+    background-color: transparent;
+    cursor: pointer;
+}
+@mixin mixin_font {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 156%;
+    color: #fff;
+}
+@mixin title_font {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 156%;
+    color: #fff;
+}
+@mixin name {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    text-align: center;
+    color: #79c8c7;
+}
+@mixin job_role {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 167%;
+    text-align: center;
+    color: #fff;
+}
+@mixin other_title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+}

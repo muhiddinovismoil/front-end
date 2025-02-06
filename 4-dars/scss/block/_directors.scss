@@ -1,0 +1,65 @@
+.directors {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    background-color: #004047;
+    background-repeat: no-repeat;
+    background-image: url("../../images/background-image3.png"),
+        url("../../images/background-image2.png");
+    background-position: right bottom, left top;
+}
+.directors__title {
+    @include other_title;
+    margin-bottom: 64px;
+}
+.directors__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 76px;
+    column-gap: 30px;
+}
+.directors__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #012f34;
+    padding: 29px 32px 60px 29px;
+}
+.directors__btn {
+    padding: 20px 28px;
+    position: absolute;
+    border-radius: 100%;
+    border: none;
+    color: #012f34;
+    font-size: 32px;
+    top: 85%;
+    background-color: #f67e7e;
+    cursor: pointer;
+}
+.last_btn {
+    background-color: #79c8c7;
+}
+.directors__sub_title {
+    margin-top: 16px;
+    @include name;
+}
+.directors__role {
+    margin-bottom: 28px;
+    @include job_role;
+}
+.last_item {
+    background-color: #002529;
+}
+.directors__paragraph {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 167%;
+    text-align: center;
+    color: #fff;
+}
+.directors__icons {
+    display: flex;
+    margin-top: 24px;
+    gap: 16px;
+}

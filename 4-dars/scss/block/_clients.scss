@@ -1,0 +1,19 @@
+.clients {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    background-color: #012f34;
+    background-image: url("../../images/background-image4.png");
+    background-repeat: no-repeat;
+}
+.clients__title {
+    @include other_title;
+    text-align: center;
+}
+.clients__block {
+    text-align: center;
+}
+.clients__info {
+    margin-top: 64px;
+    display: flex;
+    gap: 80px;
+}

@@ -1,0 +1,22 @@
+.contacts {
+    padding-top: 76px;
+    padding-bottom: 76px;
+    background-color: #f67e7e;
+    background-image: url("../../images/background-image5.png");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+.contacts__info {
+    display: flex;
+    gap: 265px;
+}
+.contacts__title {
+    @include other_title;
+    color: #012f34;
+}
+.contacts__btn {
+    @include btn;
+    @include mixin_font;
+    border: #012f34 2px solid;
+    color: #012f34;
+}

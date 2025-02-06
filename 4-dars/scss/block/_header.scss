@@ -1,0 +1,21 @@
+.header__block {
+    margin-top: 71px;
+    display: flex;
+    justify-content: space-between;
+}
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+.header__nav-item {
+    display: flex;
+    gap: 40px;
+}
+.header__link {
+    @include mixin_font;
+}
+.header__btn {
+    @include btn;
+    @include mixin_font;
+}
