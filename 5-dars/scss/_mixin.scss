@@ -1,0 +1,32 @@
+@mixin tablet_nav_font {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 156%;
+    color: $white_color;
+}
+
+@mixin hero_paragraph_font {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 187%;
+    color: $white_color;
+}
+
+@mixin manage__title-font_tablet-mobile {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    color: $white_color;
+}
+@mixin manage__sub_title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: $most_userd_color2;
+}
+@mixin manage__text_font {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 167%;
+    color: $white_color;
+}

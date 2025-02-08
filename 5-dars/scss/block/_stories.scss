@@ -1,0 +1,99 @@
+.stories {
+    background-image: url("../images/stories_bg1.svg"),
+        url("../images/stories_bg2.svg");
+    background-repeat: no-repeat;
+    background-position: left top, right bottom;
+    padding-top: 140px;
+    padding-bottom: 164px;
+    background-color: $most_userd_color4;
+}
+.stories__block {
+    max-width: 327px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.stories__item {
+    text-align: center;
+}
+.stories__title {
+    margin-bottom: 84px;
+    max-width: 327px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    color: #fff;
+}
+.stories__title-style {
+    color: #55a0a1;
+}
+.stories__text {
+    margin-bottom: 16px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 167%;
+    color: #fff;
+}
+.stories__sub_title {
+    margin-bottom: 2px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #79c8c7;
+}
+.stories__info {
+    margin-bottom: 16px;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 138%;
+    color: #fff;
+}
+.stories__img {
+    margin-bottom: 84px;
+}
+@media screen and (min-width: 768px) {
+    .stories {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .stories__block {
+        max-width: 573px;
+    }
+    .stories__title {
+        max-width: 468px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .stories__list {
+        max-width: 100%;
+    }
+}
+@media screen and (min-width: 1110px) {
+    .stories {
+        padding-bottom: 140px;
+    }
+    .stories__block {
+        max-width: 100%;
+    }
+    .stories__list {
+        display: flex;
+        gap: 30px;
+    }
+    .stories__item {
+        max-width: 350px;
+    }
+    .stories__title {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 932px;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 100%;
+        color: #fff;
+        text-align: center;
+    }
+    .stories__info {
+        margin-bottom: 32px;
+    }
+}

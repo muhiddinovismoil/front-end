@@ -1,0 +1,110 @@
+.director {
+    padding-top: 88px;
+    padding-bottom: 116px;
+    background-image: url("../images/director_bg.svg"),
+        url("../images/director_bg2.svg");
+    background-repeat: no-repeat;
+    background-position: left top, right bottom;
+    background-color: $most_userd_color4;
+}
+.director__block {
+    text-align: center;
+}
+.director__list {
+    display: grid;
+    row-gap: 52px;
+    grid-template-columns: 1fr;
+}
+.director__title {
+    margin-bottom: 48px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    color: #fff;
+}
+.director__content {
+    padding-top: 32px;
+    padding-bottom: 56px;
+}
+.director__item {
+    background-color: $most_userd_color3;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+}
+.last_item {
+    background-color: $footer__color;
+}
+.director__sub_title {
+    margin-top: 16px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #79c8c7;
+}
+.director__role {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 167%;
+    color: #fff;
+}
+.director__text {
+    margin-top: 8px;
+    max-width: 234px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 167%;
+    color: #fff;
+}
+.director__icon {
+    display: flex;
+    margin-top: 24px;
+    gap: 17px;
+    justify-content: center;
+}
+.director__btn {
+    position: absolute;
+    padding: 20px 25px;
+    background-color: $most_userd_color2;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 88%;
+    border: none;
+    border-radius: 100%;
+}
+.last_btn {
+    background-color: #79c8c7;
+}
+@media screen and (min-width: 768px) {
+    .director {
+        background-image: url("../images/director_bg3.svg"),
+            url("../images/director_bg4.svg");
+        padding-top: 100px;
+        padding-bottom: 128px;
+    }
+    .director__list {
+        column-gap: 11px;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (min-width: 1110px) {
+    .director {
+        padding-top: 140px;
+        padding-bottom: 140px;
+    }
+    .director__list {
+        column-gap: 30px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .director__title {
+        font-size: 48px;
+        line-height: 100%;
+        margin-bottom: 64px;
+    }
+}
