@@ -1,0 +1,75 @@
+.main_header {
+    background-color: $todos_color;
+    padding: 120px 0;
+}
+
+.main_header__title {
+    font-weight: 700;
+    font-size: 32px;
+    color: #313d5a;
+    margin-bottom: 16px;
+}
+
+.main_header__todo-form {
+    max-width: 100%;
+}
+
+.main_header__todo_box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.main_header__todos_inputs {
+    padding: 15px 10px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: $input_color;
+}
+
+.main_header__todos_inputs::placeholder {
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+}
+
+.main_header__todos-form_btn {
+    padding: 16px 0;
+    border: none;
+    background-color: $button_color;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .main_header__todo_box {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .main_header__title {
+        text-align: center;
+    }
+    .main_header__todos_inputs {
+        width: 539px;
+    }
+    .main_header__todos-form_btn {
+        width: 120px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main_header__todo_box {
+        justify-content: center;
+        gap: 30px;
+    }
+    .main_header__todos_inputs {
+        width: 600px;
+    }
+    .main_header__todos-form_btn {
+        width: 140px;
+    }
+}

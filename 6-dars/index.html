@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo</title>
+        <link rel="stylesheet" href="./css/main.css" />
+        <link
+            rel="shortcut icon"
+            href="./images/to-do-list.png"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <header class="main_header">
+            <div class="container">
+                <div class="main_header__block">
+                    <h1 class="main_header__title">Today's Todo-Tasks</h1>
+                    <form class="main_header__todo-form">
+                        <div class="main_header__todo_box">
+                            <input
+                                id="tasks"
+                                class="main_header__todos_inputs"
+                                name="task"
+                                type="text"
+                                placeholder="Enter todo task ..."
+                                autocomplete="off"
+                                required
+                            />
+                            <button class="main_header__todos-form_btn">
+                                ADD
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="todo-data">
+                <div class="container">
+                    <div class="todo-data__block">
+                        <ul class="todo-data__list"></ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="./source/main.js"></script>
+    </body>
+</html>
