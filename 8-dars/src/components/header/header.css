@@ -1,0 +1,19 @@
+.main_header {
+    padding-top: 56px;
+}
+.main_header__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.main_header__list {
+    display: flex;
+    gap: 32px;
+}
+.main_header__item {
+    font-weight: 500;
+    font-size: 13px;
+}
+.main_header__link {
+    color: #242d52;
+}

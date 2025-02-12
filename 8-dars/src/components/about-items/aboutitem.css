@@ -1,0 +1,35 @@
+.about__item {
+    display: flex;
+    gap: 28px;
+    max-width: 540px;
+}
+.about__item:not(:last-child) {
+    margin-bottom: 40px;
+}
+.about__count-text {
+    padding: 6px 23px 10px 25px;
+    background-color: #f3603c;
+    border-radius: 39px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+}
+.about__content2 {
+    margin-top: 6px;
+    max-width: 445px;
+}
+.about__sub_title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 19px;
+    letter-spacing: -0.02em;
+    color: #242d52;
+}
+.about__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 162%;
+    color: #242d52;
+    opacity: 0.5;
+}

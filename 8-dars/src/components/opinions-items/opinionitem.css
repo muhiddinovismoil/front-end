@@ -1,0 +1,29 @@
+.opinions__item {
+    max-width: 540px;
+    position: relative;
+    background-color: #fafafa;
+    margin-bottom: 53px;
+}
+
+.opinions__img {
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.opinions__sub_title {
+    margin-top: 60px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: #242d52;
+}
+.opinions__text {
+    margin-top: 19px;
+    padding: 0 40px 40px 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 162%;
+    color: #242d52;
+    opacity: 0.5;
+}

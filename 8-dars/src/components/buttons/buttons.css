@@ -1,0 +1,11 @@
+#nice-btn {
+    box-shadow: 0 15px 15px -10px #ff9f8e;
+    background-color: #f3603c;
+    border-radius: 22px;
+    border: none;
+    padding: 12px 32px 13px 32px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #fcf6f5;
+    cursor: pointer;
+}

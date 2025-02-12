@@ -1,0 +1,111 @@
+.hero {
+    padding-top: 120px;
+}
+.hero__block {
+    display: flex;
+    align-items: center;
+    gap: 125px;
+}
+.hero__title {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 114%;
+    letter-spacing: -0.02em;
+    color: #242d52;
+    margin-bottom: 24px;
+}
+.hero__paragraph {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 162%;
+    color: #242d52;
+    max-width: 350px;
+    opacity: 0.5;
+    margin-bottom: 40px;
+}
+/* ABOUT SECTION */
+
+.about {
+    padding-top: 132px;
+}
+.about__block {
+    display: flex;
+    gap: 125px;
+}
+.about__content {
+    max-width: 445px;
+}
+.about__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: #242d52;
+}
+.about__paragraph {
+    margin-top: 24px;
+    max-width: 340px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 162%;
+    color: #242d52;
+    opacity: 0.5;
+}
+/* OPINION SECTION */
+.opinions {
+    padding-top: 165px;
+    margin-bottom: 161px;
+}
+.opinions__block {
+    text-align: center;
+}
+.opinions__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: #242d52;
+    margin-bottom: 59px;
+}
+.opinions__elements {
+    display: flex;
+    gap: 30px;
+}
+/* BANNER SECTION */
+
+.banner {
+    background-color: #f3603c;
+    background-image: url("./assets/banner_bg2.svg");
+    background-position: right top;
+    background-repeat: no-repeat;
+}
+.banner__block {
+    background-image: url("./assets/banner_bg.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+.banner__content {
+    display: flex;
+    padding-top: 62px;
+    padding-bottom: 62px;
+    justify-content: space-between;
+    align-items: center;
+}
+.banner__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: #fff;
+    max-width: 455px;
+}
+.banner__btn {
+    border-radius: 22px;
+    border: none;
+    padding: 12px 32px 13px 32px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #f3603c;
+    box-shadow: 0 15px 15px -10px #db5943;
+    background-color: #fff;
+}
