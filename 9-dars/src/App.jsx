@@ -6,6 +6,15 @@ import infoImg from "./assets/info_img.svg";
 import infoImg2 from "./assets/info_img2.svg";
 import infoImg3 from "./assets/info_img3.svg";
 import infoImg4 from "./assets/info_img4.svg";
+import newCollectionImg from "./assets/new_collection_img.svg";
+import newCollectionImg2 from "./assets/new_collection_img2.svg";
+import newCollectionImg3 from "./assets/new_collection_img3.svg";
+import newCollectionImg4 from "./assets/new_collection_img4.svg";
+import newCollectionImg5 from "./assets/new_collection_img5.svg";
+import audioBookImg from "./assets/audio_book_img.svg";
+import audioBookImg2 from "./assets/audio_book_img2.svg";
+import audioBookImg3 from "./assets/audio_book_img3.svg";
+import audioBookImg4 from "./assets/audio_book_img4.svg";
 import "./App.css";
 
 function App() {
@@ -130,7 +139,7 @@ function App() {
                             </li>
                             <li className="pillars__item4 content">
                                 <h3 className="pillars__sub_title sub-title_style">
-                                    Болалар адабиёти{" "}
+                                    Болалар адабиёти
                                 </h3>
                             </li>
                             <li className="pillars__item5 content">
@@ -147,8 +156,170 @@ function App() {
                     </div>
                 </div>
             </section>
-            <section className="new_collection"></section>
-            <section className="audio_books"></section>
+            <section className="new_collection">
+                <div className="container">
+                    <div className="new_collection__block">
+                        <div className="new_collection__head">
+                            <h2 className="new_collection__title">
+                                Янги қўшилганлар
+                            </h2>
+                        </div>
+                        <ul className="new_collection__list">
+                            <li className="new_collection__item">
+                                <div className="new_collection__img_box">
+                                    <img
+                                        src={newCollectionImg}
+                                        alt="new collection book1"
+                                    />
+                                </div>
+                                <h3 className="new_collection__sub_title">
+                                    1984
+                                </h3>
+                                <p className="new_collection__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                            <li className="audio_books__item">
+                                <div className="new_collection__img_box">
+                                    <img
+                                        src={newCollectionImg2}
+                                        alt="new collection book2"
+                                    />
+                                </div>
+                                <h3 className="new_collection__sub_title">
+                                    Rich dad poor dad
+                                </h3>
+                                <p className="new_collection__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                            <li className="audio_books__item">
+                                <div className="new_collection__img_box">
+                                    <img
+                                        src={newCollectionImg3}
+                                        alt="new collection book3"
+                                    />
+                                </div>
+                                <h3 className="new_collection__sub_title">
+                                    Код 8
+                                </h3>
+                                <p className="new_collection__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                            <li className="audio_books__item">
+                                <div className="new_collection__img_box">
+                                    <img
+                                        src={newCollectionImg4}
+                                        alt="new collection book4"
+                                    />
+                                </div>
+                                <h3 className="new_collection__sub_title">
+                                    Даниел КИЗ
+                                </h3>
+                                <p className="new_collection__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                            <li className="audio_books__item">
+                                <div className="new_collection__img_box">
+                                    <img
+                                        src={newCollectionImg5}
+                                        alt="new collection book5"
+                                    />
+                                </div>
+                                <h3 className="new_collection__sub_title">
+                                    Бепарволикнинг но...
+                                </h3>
+                                <p className="new_collection__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section className="audio_books">
+                <div className="container">
+                    <div className="audio_books__block">
+                        <div className="audio_books__head">
+                            <h2 className="audio_books__title">
+                                Аудио китоблар
+                            </h2>
+                        </div>
+                        <ul className="audio_books__list">
+                            <li className="audio_books__item">
+                                <div className="audio_books__img_box">
+                                    <img
+                                        src={audioBookImg}
+                                        alt="new collection book1"
+                                    />
+                                </div>
+                                <h3 className="audio_books__sub_title">1984</h3>
+                                <p className="audio_books__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                            <li className="audio_books__item">
+                                <div className="audio_books__img_box">
+                                    <img
+                                        src={audioBookImg2}
+                                        alt="new collection book2"
+                                    />
+                                </div>
+                                <h3 className="audio_books__sub_title">
+                                    Rich dad poor dad
+                                </h3>
+                                <p className="audio_books__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                            <li className="audio_books__item">
+                                <div className="audio_books__img_box">
+                                    <img
+                                        src={newCollectionImg5}
+                                        alt="new collection book3"
+                                    />
+                                </div>
+                                <h3 className="audio_books__sub_title">
+                                    Код 8
+                                </h3>
+                                <p className="audio_books__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                            <li className="audio_books__item">
+                                <div className="audio_books__img_box">
+                                    <img
+                                        src={audioBookImg3}
+                                        alt="new collection book4"
+                                    />
+                                </div>
+                                <h3 className="audio_books__sub_title">
+                                    Даниел КИЗ
+                                </h3>
+                                <p className="audio_books__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                            <li className="audio_books__item">
+                                <div className="audio_books__img_box">
+                                    <img
+                                        src={audioBookImg4}
+                                        alt="new collection book5"
+                                    />
+                                </div>
+                                <h3 className="audio_books__sub_title">
+                                    Бепарволикнинг но...
+                                </h3>
+                                <p className="audio_books__category">
+                                    SIYOSAT, FANTASTIKA
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </MainLayout>
     );
 }
