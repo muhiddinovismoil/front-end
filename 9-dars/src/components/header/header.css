@@ -1,0 +1,92 @@
+.header__block {
+    border-bottom: 1px solid #f0f0f0;
+    padding-top: 21px;
+    display: flex;
+    padding-bottom: 21px;
+    align-items: center;
+}
+.header__form {
+    display: flex;
+}
+.header__img {
+    margin-right: 46px;
+}
+.header__category {
+    margin-right: 4px;
+}
+.header__btn_select-box {
+    margin-left: 64px;
+    margin-right: 20px;
+}
+.header__category_items {
+    padding: 13px 18px 13px 60px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #5161bb;
+    border: 1px solid #e1e1e1;
+    background-color: #fff;
+    border-radius: 14px 0 0 14px;
+    cursor: pointer;
+    margin-left: 3px;
+    background-image: url("../../assets/header_category.svg");
+    background-position: 25px;
+    background-repeat: no-repeat;
+}
+.header__inputs {
+    padding: 13px 280px 13px 29px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #aaa;
+    border: 1px solid #e1e1e1;
+    border-radius: 0 14px 14px 0;
+    background-image: url("../../assets/header_search.ico.svg");
+    background-repeat: no-repeat;
+    background-position: 460px;
+}
+.header__btn {
+    padding: 11px 24px 11px 45px;
+    font-weight: 700;
+    color: #fff;
+    font-size: 18px;
+    background-color: #5161bb;
+    border: none;
+    border-radius: 14px;
+    text-align: center;
+    background-image: url("../../assets/header_btn_ico.svg");
+    background-repeat: no-repeat;
+    background-position: 20px;
+    cursor: pointer;
+}
+.header_btn_img {
+    margin-right: 15px;
+}
+.header__btn_select-box {
+    display: flex;
+}
+.header__language_items {
+    background-image: url("../../assets/header_language.svg");
+    background-repeat: no-repeat;
+    border-radius: 14px;
+    cursor: pointer;
+    background-position: 10px;
+    color: #5161bb;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #dfe5ef;
+    padding: 13px 16px 13px 30px;
+}
+.header__block2 {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.header__list {
+    display: flex;
+    gap: 20px;
+}
+.header__item > a {
+    color: #5161bb;
+    font-weight: 600;
+    font-size: 16px;
+}
