@@ -92,13 +92,38 @@ export const BookDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className="container pt-[40px] border">
+            <div className="container pt-[40px]">
                 <div className="flex justify-between">
                     <div className="flex gap-[38px]">
-                        <h2>Маълумотлар</h2>
-                        <h2>Фикрлар</h2>
+                        <h2 className="font-bold text-[32px] text-[var(--text)]">
+                            Маълумотлар
+                        </h2>
+                        <h2 className="font-bold text-[32px] text-[var(--dark-gray)]">
+                            Фикрлар
+                        </h2>
                     </div>
-                    <h2>Ўхшаш китоблар</h2>
+                    <h2 className="font-bold text-[32px] text-[#11142d]">
+                        Ўхшаш китоблар
+                    </h2>
+                </div>
+                <div>
+                    <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </>
