@@ -7,7 +7,7 @@ export const Header = () => {
         navigate("/create-todo");
     };
     return (
-        <div className="border border-[red] text-[18px] flex max-w-[685px] grow bg-gray-900 items-center justify-center gap-[255px] px-[20px] py-[12px] rounded-[14px]">
+        <div className="border-4 border-blue-600 text-[18px] flex max-w-[685px] grow bg-gray-900 items-center justify-center gap-[255px] px-[20px] py-[12px] rounded-[14px]">
             <h1 className="text-[white]">You can create tasks on here</h1>
             <button
                 onClick={createTodo}

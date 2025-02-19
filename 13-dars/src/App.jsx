@@ -4,7 +4,8 @@ import { Header } from "./layouts/header/header";
 import { CreateTaskForm } from "./pages/create-task";
 import { TaskList } from "./pages/task-list";
 import { EditTask } from "./pages/edit-task";
-
+import notFoundImg from "./assets/not-found.jpg";
+import { NotFound } from "./pages/not-found";
 function App() {
     return (
         <>
@@ -12,6 +13,10 @@ function App() {
                 <Route path="/" element={<MainLayout header={<Header />} />}>
                     <Route index element={<MainLayout main={<TaskList />} />} />
                 </Route>
+                <Route
+                    path="*"
+                    element={<NotFound img={notFoundImg} />}
+                ></Route>
                 <Route
                     path="edit-todo/:id"
                     element={<MainLayout main={<EditTask />} />}

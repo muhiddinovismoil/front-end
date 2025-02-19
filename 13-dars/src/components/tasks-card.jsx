@@ -25,8 +25,10 @@ export const TaskCard = ({ id, title, description }) => {
             key={id}
         >
             <div>
-                <h2 className="text-[18px] font-bold">{title}</h2>
-                <p className="font-medium">{description}</p>
+                <h2 className="text-[20px] font-bold">{title}</h2>
+                <p className="font-medium mt-[16px] text-[14px] opacity-[0.7]">
+                    {description}
+                </p>
             </div>
             <div className="flex gap-[16px]">
                 <button
