@@ -92,8 +92,8 @@ export const BookDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className="container pt-[40px]">
-                <div className="flex justify-between">
+            <div className="container pt-[40.52px]">
+                <div className="flex justify-between pb-[22px]">
                     <div className="flex gap-[38px]">
                         <h2 className="font-bold text-[32px] text-[var(--text)]">
                             Маълумотлар
@@ -106,23 +106,77 @@ export const BookDetail = () => {
                         Ўхшаш китоблар
                     </h2>
                 </div>
-                <div>
-                    <div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
+                <div className="max-w-[915.5px] border-[0.77px] border-[var(--primary-soft)]">
+                    <div className="flex flex-col">
+                        <div className="flex gap-[188px] px-[25px] py-[20px]">
+                            <h3 className="font-bold leading-[116%] text-[#11142d]">
+                                Китоб номи
+                            </h3>
+                            <p className="font-normal leading-[116%] text-[#11142d]">
+                                {title}
+                            </p>
+                        </div>
+                        <div className="flex gap-[209px] border-t-[0.77px] border-[var(--primary-soft)] px-[25px] py-[20px]">
+                            <h3 className="font-bold leading-[116%] text-[#11142d] ">
+                                Муаллиф
+                            </h3>
+                            <p className="font-normal leading-[116%] text-[#11142d]">
+                                {author}
+                            </p>
+                        </div>
+                        <div className="flex gap-[240px] border-t-[0.77px] border-[var(--primary-soft)] px-[25px] py-[20px]">
+                            <h3 className="font-bold leading-[116%] text-[#11142d]">
+                                ISBN
+                            </h3>
+                            <p className="font-normal leading-[116%] text-[#11142d]">
+                                121341381648 (ISBN13: 121341381648)
+                            </p>
+                        </div>
+                        <div className="flex gap-[251px] border-t-[0.77px] border-[var(--primary-soft)] px-[25px]  py-[20px]">
+                            <h3 className="font-bold leading-[116%] text-[#11142d] ">
+                                Тил
+                            </h3>
+                            <p className="font-normal leading-[116%] text-[#11142d]">
+                                Ўзбек
+                            </p>
+                        </div>
+                        <div className="flex gap-[195px] border-t-[0.77px] border-[var(--primary-soft)] px-[25px] py-[20px]">
+                            <h3 className="font-bold leading-[116%] text-[#11142d] ">
+                                Сахифалар
+                            </h3>
+                            <p className="font-normal leading-[116%] text-[#11142d]">
+                                450
+                            </p>
+                        </div>
+                        <div className="flex gap-[148px] border-t-[0.77px] border-[var(--primary-soft)] px-[25px] py-[20px]">
+                            <h3 className="font-bold leading-[116%] text-[#11142d] ">
+                                Чоп этилган сана
+                            </h3>
+                            <p className="font-normal leading-[116%] text-[#11142d]">
+                                {published}
+                            </p>
+                        </div>
+                        <div className="flex gap-[212px] border-t-[0.77px] border-[var(--primary-soft)] px-[25px] py-[20px]">
+                            <h3 className="font-bold leading-[116%] text-[#11142d] ">
+                                Нашриёт
+                            </h3>
+                            <p className="font-normal leading-[116%] text-[#11142d]">
+                                Wepress Inc.
+                            </p>
+                        </div>
+                        <div className="flex gap-[245px] border-t-[0.77px] border-[var(--primary-soft)] px-[25px] pt-[21px] pb-[66px]">
+                            <h3 className="font-bold leading-[116%] text-[#11142d]">
+                                Рукн
+                            </h3>
+                            <div className="flex gap-[10.75px]">
+                                <p className="bg-[var(--primary-soft)] py-[6px] px-[8px] text-[15px] leading-[120%] text-[var(--primary)] font-semibold rounded-[11px]">
+                                    SIYOSAT
+                                </p>
+                                <p className="bg-[var(--primary-soft)] py-[6px] px-[8px] text-[15px] leading-[120%] text-[var(--primary)] font-semibold rounded-[11px]">
+                                    СИЁСАТ
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
