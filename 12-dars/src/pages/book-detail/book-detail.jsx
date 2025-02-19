@@ -4,11 +4,15 @@ import btnIcon from "../../assets/btn-icons/icon1.svg";
 import btnIcon2 from "../../assets/btn-icons/icon2.svg";
 import btnIcon3 from "../../assets/btn-icons/icon3.svg";
 import rateImg from "../../assets/rate.svg";
+import { useEffect } from "react";
 export const BookDetail = () => {
     const { id } = useParams();
     const [{ title, author, category, info, img, published }] = allBooks.filter(
         (item) => item.id == id
     );
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
     return (
         <>
             <div className="container flex gap-[24px] pt-[24px]">
