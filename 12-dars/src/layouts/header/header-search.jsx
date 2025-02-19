@@ -1,13 +1,16 @@
 import logo from "../../assets/logo.svg";
 import { MenuIcon } from "../../assets/icons/menu-icon";
 import { SearchIcon } from "../../assets/icons/search-icon";
+import { Link } from "react-router-dom";
 
 export const HeaderSearch = () => {
     return (
         <div className="flex items-center grow  gap-[46px]">
-            <a href="#">
-                <img src={logo} alt="img" />
-            </a>
+            <Link to={"/"}>
+                <a href="#">
+                    <img src={logo} alt="img" />
+                </a>
+            </Link>
             <div className="flex gap-[4px] grow items-center">
                 <div className="relative">
                     <MenuIcon className="absolute left-[24px] top-[50%] translate-y-[-50%]" />
