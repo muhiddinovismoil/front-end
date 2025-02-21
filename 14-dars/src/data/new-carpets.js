@@ -1,0 +1,43 @@
+import newCarpet from "../assets/new-carpets/new-carpet.svg";
+export const newCarpets = [
+    {
+        id: 1,
+        img: newCarpet,
+        model: "Aster Q893A LVIZON LVIZON",
+        size: "60x100",
+        made_in: "Казахстан",
+        rate: 4,
+        price: "160.000",
+        monthly_price: "13.333",
+    },
+    {
+        id: 2,
+        img: newCarpet,
+        model: "Elegance M459B ROYAL",
+        size: "80x120",
+        made_in: "Турция",
+        rate: 5,
+        price: "210.000",
+        monthly_price: "17.500",
+    },
+    {
+        id: 3,
+        img: newCarpet,
+        model: "Premium X721A LUX",
+        size: "70x110",
+        made_in: "Россия",
+        rate: 5,
+        price: "190.000",
+        monthly_price: "15.833",
+    },
+    {
+        id: 4,
+        img: newCarpet,
+        model: "Classic Z532C ORNAMENT",
+        size: "100x150",
+        made_in: "Иран",
+        rate: 3,
+        price: "280.000",
+        monthly_price: "23.333",
+    },
+];
