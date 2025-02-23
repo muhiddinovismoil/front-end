@@ -72,7 +72,9 @@ export const CartCard = ({
                 <Typography mb={"8px"} maxWidth={"175px"} variant="body2">
                     Размер: {size}
                 </Typography>
-                <Typography variant="body2">{made_in}</Typography>
+                <Typography variant="body2">
+                    Производитель: {made_in}
+                </Typography>
                 <Box
                     display={"flex"}
                     mb={"16px"}

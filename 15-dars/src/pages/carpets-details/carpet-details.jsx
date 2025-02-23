@@ -36,6 +36,12 @@ export const CarpetDetails = () => {
             price,
             author_code,
             badge,
+            mateial,
+            density,
+            thickness,
+            weight,
+            made_in,
+            author,
             type,
         },
     ] = allCarpets.filter((item) => item.id == id);
@@ -293,7 +299,7 @@ export const CarpetDetails = () => {
                                         py={"5px"}
                                         mr={"20px"}
                                     >
-                                        <IconButton fullWidth>
+                                        <IconButton>
                                             <LikeIco />
                                         </IconButton>
                                     </Box>
@@ -426,30 +432,59 @@ export const CarpetDetails = () => {
                             </Typography>
                         </Box>
                     </Stack>
-                    <Stack pt={"48px"}>
-                        <Box>
+                    <Stack pt={"48px"} maxWidth={"398px"}>
+                        <Box
+                            display={"flex"}
+                            justifyContent={"space-between"}
+                            pb={"16px"}
+                            borderBottom={1}
+                        >
                             <Typography>Материал</Typography>
-                            <Typography></Typography>
+                            <Typography>{mateial}</Typography>
                         </Box>
-                        <Box>
+                        <Box
+                            display={"flex"}
+                            justifyContent={"space-between"}
+                            py={"16px"}
+                            borderBottom={1}
+                        >
                             <Typography>Толщина</Typography>
-                            <Typography></Typography>
+                            <Typography>{thickness}</Typography>
                         </Box>
-                        <Box>
+                        <Box
+                            display={"flex"}
+                            justifyContent={"space-between"}
+                            py={"16px"}
+                            borderBottom={1}
+                        >
                             <Typography>Вес</Typography>
-                            <Typography></Typography>
+                            <Typography>{weight}</Typography>
                         </Box>
-                        <Box>
+                        <Box
+                            display={"flex"}
+                            justifyContent={"space-between"}
+                            py={"16px"}
+                            borderBottom={1}
+                        >
                             <Typography>Плотность</Typography>
-                            <Typography></Typography>
+                            <Typography>{density}</Typography>
                         </Box>
-                        <Box>
+                        <Box
+                            display={"flex"}
+                            justifyContent={"space-between"}
+                            py={"16px"}
+                            borderBottom={1}
+                        >
                             <Typography>Производитель</Typography>
-                            <Typography></Typography>
+                            <Typography>{author}</Typography>
                         </Box>
-                        <Box>
+                        <Box
+                            display={"flex"}
+                            justifyContent={"space-between"}
+                            py={"16px"}
+                        >
                             <Typography>Страна</Typography>
-                            <Typography></Typography>
+                            <Typography>{made_in}</Typography>
                         </Box>
                     </Stack>
                 </Container>
