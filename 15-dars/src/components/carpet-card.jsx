@@ -1,29 +1,11 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import styled from "@emotion/styled";
 import { Box, Grid2, Rating, Stack, Typography } from "@mui/material";
 import { COLORS } from "../config/color";
 import LikeIcon from "../assets/carpets-img/like.svg";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { CardBadge } from "../custom/card-badge";
-const ProductWrapper = styled.div`
-    border-radius: 10px;
-    height: 524px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    background: #fff;
-    position: relative;
-    padding-top: 68px;
-    padding-bottom: 21px;
-    padding-left: 20px;
-    padding-right: 20px;
-`;
-const MonthlyPriceBadge = styled.span`
-    background-color: #618c78;
-    padding: 2px 7px;
-    position: absolute;
-    color: #fff;
-`;
+import { MonthlyPriceBadge } from "../custom/monthlyPriceBadge";
+import { ProductWrapper } from "../custom/product-wrapper";
 export const CartCard = ({
     id,
     img,

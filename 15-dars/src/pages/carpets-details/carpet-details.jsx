@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import {
     Box,
     Container,
+    Grid2,
     IconButton,
     Rating,
     Stack,
@@ -10,7 +11,11 @@ import {
 } from "@mui/material";
 import { COLORS } from "../../config/color";
 import { CardBadge } from "../../custom/card-badge";
-import { allCarpets } from "../../data/carts-mock.data";
+import {
+    allCarpets,
+    discountedCarpetsData,
+    newCarpetsData,
+} from "../../data/carts-mock.data";
 import mainImg from "../../assets/carpet-details/main.svg";
 import carpetDetailImg from "../../assets/carpet-details/carpet-detail_img.svg";
 import carpetDetailImg2 from "../../assets/carpet-details/carpet-detail_img2.svg";
@@ -21,6 +26,7 @@ import LikeIco from "../../assets/carpet-details/like";
 import deliveryIco from "../../assets/carpet-details/deliveryIco.svg";
 import deliveryIco2 from "../../assets/carpet-details/deliveryIco2.svg";
 import SocialNetwork from "../../assets/carpet-details/social-network.ico";
+import { CartCard } from "../../components/carpet-card";
 export const CarpetDetails = () => {
     const { id } = useParams();
     const [counter, setCount] = React.useState(0);
@@ -487,6 +493,48 @@ export const CarpetDetails = () => {
                             <Typography>{made_in}</Typography>
                         </Box>
                     </Stack>
+                </Container>
+            </Box>
+            <Box pb={"100px"} pt={"36px"}>
+                <Container maxWidth="xl">
+                    <Stack direction={"row"} alignItems={"center"} gap={"32px"}>
+                        <Typography variant="h2">
+                            Вам может понравиться
+                        </Typography>
+                    </Stack>
+                    <Grid2 container spacing={"40px"} pt={"29px"}>
+                        {type == "discount"
+                            ? newCarpetsData.map((item) => (
+                                  <CartCard
+                                      key={item.id}
+                                      id={item.id}
+                                      img={item.img}
+                                      name={item.name}
+                                      badge={item.badge}
+                                      made_in={item.made_in}
+                                      rate={item.rate}
+                                      size={item.size}
+                                      type={item.type}
+                                      old_price={item.old_price}
+                                      new_price={item.new_price}
+                                  />
+                              ))
+                            : discountedCarpetsData.map((item) => (
+                                  <CartCard
+                                      key={item.id}
+                                      id={item.id}
+                                      img={item.img}
+                                      name={item.name}
+                                      badge={item.badge}
+                                      made_in={item.made_in}
+                                      rate={item.rate}
+                                      size={item.size}
+                                      type={item.type}
+                                      old_price={item.old_price}
+                                      new_price={item.new_price}
+                                  />
+                              ))}
+                    </Grid2>
                 </Container>
             </Box>
         </>
