@@ -515,8 +515,8 @@ export const CarpetDetails = () => {
                                       rate={item.rate}
                                       size={item.size}
                                       type={item.type}
-                                      old_price={item.old_price}
-                                      new_price={item.new_price}
+                                      monthly_price={item.monthly_price}
+                                      price={item.price}
                                   />
                               ))
                             : discountedCarpetsData.map((item) => (
