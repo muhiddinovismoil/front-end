@@ -9,6 +9,7 @@ import axios from "axios";
 import Modal from "antd/es/modal/Modal";
 import { useNavigate } from "react-router-dom";
 import { MessageContext } from "../../App";
+import { loadState } from "../../config/storage";
 
 export const Home = () => {
     const [todos, setTodos] = React.useState([]);
@@ -16,6 +17,12 @@ export const Home = () => {
     const [selectedTodo, setSelectedTodo] = React.useState(null);
     const [isModalVisible, setIsModalVisible] = React.useState(false);
     const navigate = useNavigate();
+    React.useEffect(() => {
+        const user = loadState("user");
+        if (!user) {
+            navigate("/login");
+        }
+    }, []);
     const fetchData = () => {
         axios
             .get(`${import.meta.env.VITE_URI}/todos`)
@@ -81,7 +88,9 @@ export const Home = () => {
                             type="primary"
                             icon={<EditOutlined />}
                             style={{ backgroundColor: "#144bc4" }}
-                            onClick={() => navigate(`/edit-todo/${data.id}`)}
+                            onClick={() =>
+                                navigate(`/app/edit-todo/${data.id}`)
+                            }
                         >
                             Edit
                         </Button>

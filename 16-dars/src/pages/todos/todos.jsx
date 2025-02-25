@@ -44,7 +44,7 @@ const Todos = () => {
         try {
             await axios.put(`${import.meta.env.VITE_URI}/todos/${id}`, values);
             messageApi.success("O'zgarishlar saqlandi!");
-            navigate("/");
+            navigate("/app");
         } catch (error) {
             console.error("Error updating todo:", error);
         } finally {
