@@ -1,12 +1,18 @@
 import React from "react";
 import { Button } from "../../components/ui/button";
+import { newArrivals, topSelling } from "../../data/products";
+import { ProductCard } from "./components/product-card";
 import BrendLogo from "../../assets/home/brend-logo.svg";
 import BrendLogo2 from "../../assets/home/brend-logo2.svg";
 import BrendLogo3 from "../../assets/home/brend-logo3.svg";
 import BrendLogo4 from "../../assets/home/brend-logo4.svg";
 import BrendLogo5 from "../../assets/home/brend-logo5.svg";
-import { newArrivals, topSelling } from "../../data/products";
-import { ProductCard } from "./components/product-card";
+import browseImg from "../../assets/home/browse-dress/browse-img.png";
+import browseImg2 from "../../assets/home/browse-dress/browse-img2.png";
+import browseImg3 from "../../assets/home/browse-dress/browse-img3.png";
+import browseImg4 from "../../assets/home/browse-dress/browse-img4.png";
+import { CommentsCard } from "./components/comments-card";
+import { Comments } from "../../data/comments";
 export const Home = () => {
     return (
         <>
@@ -131,6 +137,79 @@ export const Home = () => {
                         <Button variant={"ikkinchi"} className={"mt-[36px]"}>
                             View All
                         </Button>
+                    </div>
+                </div>
+            </section>
+            <section className="pt-[80px]">
+                <div className="container">
+                    <div className="pt-[70px] pb-[76px] bg-light-grey rounded-[40px]">
+                        <h2 className="text-center uppercase secondFont text-[48px] font-bold">
+                            BROWSE BY dress STYLE
+                        </h2>
+                        <div className="grid gap-[20px] px-[64px] pt-[64px]">
+                            <div className="grid grid-cols-[2fr_3.5fr] gap-[20px]">
+                                <div
+                                    className="h-[289px] py-[25px] px-[36px] rounded-[20px] overflow-hidden bg-cover bg-top"
+                                    style={{
+                                        backgroundImage: `url(${browseImg})`,
+                                    }}
+                                >
+                                    <p className="font-bold text-[36px]">
+                                        Casual
+                                    </p>
+                                </div>
+                                <div
+                                    className="h-[289px] py-[25px] px-[36px] rounded-[20px] overflow-hidden bg-cover bg-top"
+                                    style={{
+                                        backgroundImage: `url(${browseImg3})`,
+                                    }}
+                                >
+                                    <p className="font-bold text-[36px]">
+                                        Formal
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-[3.5fr_2fr] gap-[20px]">
+                                <div
+                                    className="h-[289px] py-[25px] px-[36px] rounded-[20px] overflow-hidden bg-cover bg-top"
+                                    style={{
+                                        backgroundImage: `url(${browseImg2})`,
+                                    }}
+                                >
+                                    <p className="font-bold text-[36px]">
+                                        Party
+                                    </p>
+                                </div>
+                                <div
+                                    className="h-[289px] py-[25px] px-[36px] rounded-[20px] overflow-hidden bg-cover bg-top"
+                                    style={{
+                                        backgroundImage: `url(${browseImg4})`,
+                                    }}
+                                >
+                                    <p className="font-bold text-[36px]">Gym</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section className="pt-[80px] pb-[170px]">
+                <div className="container">
+                    <div className="pb-[40px]">
+                        <h2 className="secondFont text-[48px] font-bold">
+                            OUR HAPPY CUSTOMERS
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-3 gap-[20px]">
+                        {Comments.map((item) => (
+                            <CommentsCard
+                                key={item.id}
+                                rate={item.rate}
+                                verified={item.verified}
+                                from={item.from}
+                                description={item.description}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>
