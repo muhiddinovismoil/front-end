@@ -17,6 +17,17 @@ import { productReviewData } from "../../data/product-review";
 import { ProductCard } from "../home/components/product-card";
 export const ProductDetails = () => {
     const { id } = useParams();
+    const [counter, setCount] = React.useState(0);
+    const increment = () => {
+        setCount(counter + 1);
+    };
+    const decrement = () => {
+        if (counter != 0) {
+            setCount(counter - 1);
+        } else {
+            setCount(counter + 0);
+        }
+    };
     return (
         <>
             <section>
@@ -126,11 +137,17 @@ export const ProductDetails = () => {
                                 <div className="pt-[20px]">
                                     <div className="flex gap-[20px]">
                                         <div className="flex gap-[38px] rounded-[62px] items-center px-[20px] py-[12px] bg-[#f0f0f0]">
-                                            <button className="cursor-pointer text-[20px]">
+                                            <button
+                                                onClick={decrement}
+                                                className="cursor-pointer text-[20px]"
+                                            >
                                                 -
                                             </button>
-                                            <p>0</p>
-                                            <button className="cursor-pointer text-[20px]">
+                                            <p>{counter}</p>
+                                            <button
+                                                onClick={increment}
+                                                className="cursor-pointer text-[20px]"
+                                            >
                                                 +
                                             </button>
                                         </div>
