@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+    --primary: #000000;
+    --gray: #999999;
+    --danger: #ff3333;
+    --pink: #ffebeb;
+    --light-grey: #f0f0f0;
+    --simple-grey: #f2f0f1;
+}
+
+@font-face {
+    font-family: "Satoshi-Regular";
+    src: url("./fonts/Satoshi-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "FONTSPRING DEMO - Integral CF";
+    src: url("./fonts/FONTSPRINGDEMO-IntegralCFRegular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme inline {
+    --color-primary: var(--primary);
+    --color-gray: var(--gray);
+    --color-danger: var(--danger);
+    --color-pink: var(--pink);
+    --color-light-grey: var(--light-grey);
+    --color-simple-grey: var(--simple-grey);
+}
+
+body {
+    font-family: "Satoshi-Regular";
+}
+
+.container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.heroBgImg {
+    background-image: url("./assets/hero/main.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.secondFont {
+    font-family: "FONTSPRING DEMO - Integral CF";
+}
