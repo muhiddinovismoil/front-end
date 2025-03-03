@@ -6,17 +6,11 @@ import PromoIcon from "../../assets/cart/promo-icon";
 import ArrowIcon from "../../assets/cart/arrow-icon";
 import { CartItems } from "./components/cart-items";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct } from "../../store/slice/cart-reducer";
+import { deleteProduct, toggleAmount } from "../../store/slice/cart-reducer";
 
 export const Cart = () => {
-    const {
-        userCount,
-        totalPrice,
-        subTotalPrice,
-        deliveryFee,
-        discount,
-        products,
-    } = useSelector((state) => state.cart);
+    const { totalPrice, subTotalPrice, deliveryFee, discount, products } =
+        useSelector((state) => state.cart);
     const dispatch = useDispatch();
     const deleteItem = (id) => {
         dispatch(deleteProduct({ id }));
@@ -57,7 +51,7 @@ export const Cart = () => {
                                     }`}
                                 >
                                     <CartItems
-                                        userCount={userCount}
+                                        userCount={item.userCount}
                                         key={item.id}
                                         data={item}
                                         onRemove={() => deleteItem(item.id)}

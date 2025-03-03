@@ -1,6 +1,21 @@
 import React from "react";
 import garbageIco from "../../../assets/cart/garbage-icon.svg";
+import { toggleAmount } from "../../../store/slice/cart-reducer";
+import { useDispatch } from "react-redux";
 export const CartItems = ({ data, userCount, onRemove }) => {
+    const dispatch = useDispatch();
+    const handleIncrement = () => {
+        dispatch(
+            toggleAmount({
+                id: data.id,
+                type: "increment",
+                maxCount: data.count,
+            })
+        );
+    };
+    const handleDecrement = () => {
+        dispatch(toggleAmount({ id: data.id, type: "decrement" }));
+    };
     return (
         <>
             <div className="max-w-[124px] flex grow ">
@@ -38,14 +53,14 @@ export const CartItems = ({ data, userCount, onRemove }) => {
                     </div>
                     <div className="flex bg-light-grey gap-[20px] max-w-[126px] items-center py-[12px] px-[20px] ml-auto rounded-[62px]">
                         <button
-                            onClick={() => decrement()}
+                            onClick={handleDecrement}
                             className="cursor-pointer text-[20px]"
                         >
                             -
                         </button>
                         <p>{userCount}</p>
                         <button
-                            onClick={() => increment()}
+                            onClick={handleIncrement}
                             className="cursor-pointer text-[20px]"
                         >
                             +

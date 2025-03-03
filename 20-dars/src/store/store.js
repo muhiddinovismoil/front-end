@@ -7,14 +7,16 @@ import cartReducer, {
     addProductList,
     deleteProduct,
     calculateAll,
+    toggleAmount,
 } from "./slice/cart-reducer";
 import { loadState, saveState } from "../config/storage";
 
 const setPrices = createListenerMiddleware();
 setPrices.startListening({
-    matcher: isAnyOf(addProductList, deleteProduct, calculateAll),
-    effect: (_, listenerApi) => {
-        listenerApi.dispatch(calculateAll());
+    matcher: isAnyOf(addProductList, deleteProduct, toggleAmount),
+    effect: async (_, listenerApi) => {
+        const state = listenerApi.getState();
+        listenerApi.dispatch(calculateAll(state.cart.products));
     },
 });
 export const store = configureStore({
@@ -24,9 +26,8 @@ export const store = configureStore({
     preloadedState: {
         cart: loadState("cart-item"),
     },
-    middleware: (defaultMiddleware) => {
-        return defaultMiddleware().concat(setPrices.middleware);
-    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(setPrices.middleware),
 });
 store.subscribe(() => {
     saveState("cart-item", store.getState()?.cart);

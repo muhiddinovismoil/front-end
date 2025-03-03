@@ -29,20 +29,20 @@ export const ProductDetails = () => {
     }, []);
     const data2 = allProducts.find((item) => item.id == id);
     const dispatch = useDispatch();
-    const handleIncrement = () => {
-        dispatch(
-            toggleAmount({
-                id: data2.id,
-                type: "increment",
-                maxCount: data2.count,
-            })
-        );
+    const [counter, setCount] = React.useState(1);
+    const increment = () => {
+        if (data2.count != counter) setCount(counter + 1);
     };
-    const handleDecrement = () => {
-        dispatch(toggleAmount({ id: data2.id, type: "decrement" }));
+    const decrement = () => {
+        if (counter > 0) {
+            setCount(counter - 1);
+        }
     };
+    React.useEffect(() => {
+        setCount(1);
+    }, [id]);
     const addProductToCart = () => {
-        dispatch(addProductList({ ...data }));
+        dispatch(addProductList({ ...data, counter }));
     };
     const { userCount } = useSelector((state) => state.cart);
     console.log();
@@ -156,14 +156,14 @@ export const ProductDetails = () => {
                                     <div className="flex gap-[20px]">
                                         <div className="flex gap-[38px] rounded-[62px] items-center px-[20px] py-[12px] bg-[#f0f0f0]">
                                             <button
-                                                onClick={handleDecrement}
+                                                onClick={() => decrement()}
                                                 className="cursor-pointer text-[20px]"
                                             >
                                                 -
                                             </button>
-                                            <p>{userCount}</p>
+                                            <p>{counter}</p>
                                             <button
-                                                onClick={handleIncrement}
+                                                onClick={() => increment()}
                                                 className="cursor-pointer text-[20px]"
                                             >
                                                 +
