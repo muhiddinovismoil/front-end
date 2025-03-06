@@ -17,7 +17,7 @@ const Home: React.FC = () => {
     React.useEffect(() => {
         const user = loadCookieState("user_token");
         if (!user) {
-            navigate("/login");
+            navigate("/login", { replace: true });
         }
     }, []);
     const [collapsed, setCollapsed] = useState(false);
