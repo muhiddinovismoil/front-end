@@ -102,7 +102,6 @@ const CustomerCreate: React.FC = () => {
                     listType="picture-card"
                     onChange={handleChange}
                     maxCount={2}
-                    // beforeUpload={() => false}
                 >
                     {fileList.length < 2 && (
                         <div>

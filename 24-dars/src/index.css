@@ -28,9 +28,9 @@ body {
 .custom-select .ant-select-selection-placeholder {
     color: black !important;
     font-weight: normal;
-    font-size: 26px;
+    font-size: 16px;
 }
 .ant-picker-input input::placeholder {
-    font-size: 18px;
+    font-size: 15px;
     color: black !important;
 }

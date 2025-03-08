@@ -15,3 +15,11 @@ export interface DebtorResponseData {
     updated_at: string;
     description: string;
 }
+export interface DebtorField {
+    debtor_id: string;
+    debt_sum: string;
+    month_sum: string;
+    debt_period: number;
+    debt_date: string;
+    description: string;
+}
