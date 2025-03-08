@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { request } from "../../../../config/request";
-import { loadCookieState } from "../../../../config/cookie";
-export const useGetAllDebtors = () => {
+export const useGetAllDebtors = (page: number, pageSize: number) => {
     return useQuery({
-        queryKey: ["debtors"],
+        queryKey: ["debtors", page, pageSize],
         queryFn: async () => {
-            const token = loadCookieState("user_token");
             const res = await request.get("/debtors", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
+                params: {
+                    page: page,
+                    limit: pageSize,
                 },
             });
+            console.log(res.data);
             return res.data;
         },
     });

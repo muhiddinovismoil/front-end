@@ -8,7 +8,7 @@ export const useLoginApp = () => {
         mutationFn: (data: authUserT) =>
             request.post("/auth/signin", data).then((res) => {
                 const { data } = res.data;
-                saveCookieState("user_token", data.accessToken, 15);
+                saveCookieState("user_token", data.accessToken, 60);
                 return res.data;
             }),
     });

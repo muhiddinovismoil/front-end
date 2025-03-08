@@ -4,40 +4,35 @@ import { Button, Form, Input, Upload } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { CustomerFieldType } from "../../types/customers.type";
 import { useAddCustomer } from "./service/mutation/useAddCustomer";
-import { request } from "../../config/request";
+import { useAddImageCustomer } from "./service/mutation/useAddImageCustomer";
 
 const CustomerCreate: React.FC = () => {
     const [showNoteInput, setShowNoteInput] = useState(false);
-    const [fileList, setFileList] = useState<UploadProps["fileList"]>([]);
     const { mutate, isPending } = useAddCustomer();
+    const { mutate: mutate2 } = useAddImageCustomer();
+    const [fileList, setFileList] = useState<any[]>([]);
+    const [newFile, setNewFile] = useState<File | null>(null);
+    const [imgUrl, setImgUrl] = useState("");
+
     const handleChange: UploadProps["onChange"] = ({ fileList }) => {
         setFileList(fileList);
-    };
-    const onFinish: FormProps<CustomerFieldType>["onFinish"] = async (
-        values
-    ) => {
-        const customerData: any = { ...values };
-
-        // Agar rasm bo‘lsa, avval uni yuklab olish
-        if (fileList && fileList.length > 0) {
-            const formData = new FormData();
-            formData.append("file", fileList[0].originFileObj);
-
-            // try {
-            // const uploadResponse = await request.post("/upload", formData, {
-            // headers: { "Content-Type": "multipart/form-data" },
-            // });
-
-            // customerData.image_url = uploadResponse.data.url; // Backendga URL jo‘natamiz
-            // } catch (error) {
-            // console.error("File upload error:", error);
-            // }
+        const lastFile = fileList[fileList.length - 1];
+        if (lastFile?.originFileObj) {
+            setNewFile(lastFile.originFileObj);
         }
-
-        console.log("Yuboriladigan ma'lumot:", customerData);
-        mutate(customerData); // JSON obyekt yuboramiz
     };
+    React.useEffect(() => {
+        if (newFile) {
+            mutate2(newFile, {
+                onSuccess: (res) => {
+                    setImgUrl(res.data.image_url);
+                },
+            });
+        }
+    }, [newFile]);
 
+    const onFinish: FormProps<CustomerFieldType>["onFinish"] = (values) =>
+        mutate({ ...values, image: imgUrl });
     return (
         <>
             <h2 style={{ marginBottom: "40px", fontSize: "28px" }}>
@@ -71,16 +66,16 @@ const CustomerCreate: React.FC = () => {
                             required: true,
                             message: "Please input your phone number!",
                         },
+                        {
+                            pattern: /^\+998\d{9}$/,
+                            message: "Please enter a valid Uzbek phone number!",
+                        },
                     ]}
                 >
                     <Input placeholder="Telefon raqami" />
                 </Form.Item>
 
-                <Form.Item<CustomerFieldType>
-                    label="Address"
-                    name="address"
-                    rules={[{ message: "Please input your address!" }]}
-                >
+                <Form.Item<CustomerFieldType> label="Address" name="address">
                     <Input placeholder="Yashash manzilini kiriting" />
                 </Form.Item>
 
@@ -97,25 +92,19 @@ const CustomerCreate: React.FC = () => {
                 </div>
 
                 {showNoteInput && (
-                    <Form.Item<CustomerFieldType>
-                        label="Note"
-                        name="note"
-                        rules={[{ message: "Please input your note!" }]}
-                    >
+                    <Form.Item<CustomerFieldType> label="Note" name="note">
                         <Input placeholder="Qo'shimcha eslatma yozing" />
                     </Form.Item>
                 )}
 
                 <p style={{ marginBottom: 10 }}>Rasm biriktirish</p>
                 <Upload
-                    action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
                     listType="picture-card"
-                    fileList={fileList}
-                    beforeUpload={() => false}
                     onChange={handleChange}
                     maxCount={2}
+                    // beforeUpload={() => false}
                 >
-                    {fileList && fileList.length >= 2 ? null : (
+                    {fileList.length < 2 && (
                         <div>
                             <PlusOutlined />
                             <div style={{ marginTop: 8 }}>Upload</div>

@@ -11,7 +11,7 @@ export function loadCookieState(key: string) {
     }
 }
 
-export function saveCookieState(key: string, state: any, minutes: number = 10) {
+export function saveCookieState(key: string, state: any, minutes: number = 60) {
     try {
         const serializedState = JSON.stringify(state);
         Cookies.set(key, serializedState, {

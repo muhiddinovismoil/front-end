@@ -1,11 +1,15 @@
-import { TableProps } from "antd";
+import { Image, TableProps } from "antd";
 import { CustomersType } from "../../../types/customers.type";
+import { Link } from "react-router-dom";
 
 export const columns: TableProps<CustomersType>["columns"] = [
     {
         title: "Full Name",
         dataIndex: "full_name",
         key: "full_name",
+        render: (full_name: string, record: CustomersType) => (
+            <Link to={`/create-debt/${record.id}`}>{full_name}</Link>
+        ),
     },
     {
         title: "Phone number",
@@ -16,6 +20,9 @@ export const columns: TableProps<CustomersType>["columns"] = [
         title: "Image",
         dataIndex: "image",
         key: "image",
+        render: (imageUrl: string) => (
+            <Image src={imageUrl} width={"70px"} height={"50px"} alt="image" />
+        ),
     },
     {
         title: "Address",

@@ -5,6 +5,7 @@ import MainLayout from "./layout/main-layout";
 import Profile from "./pages/profile/profile";
 import Customers from "./pages/customers/customers";
 import CustomerCreate from "./pages/customer-create/customer-create";
+import CalendarCard from "./pages/calendar/calendar";
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainLayout />}>
                     <Route index element={<Home />} />
-                    <Route path="calendar" />
+                    <Route path="calendar" element={<CalendarCard />} />
                     <Route path="customers" element={<Customers />} />
                     <Route path="profile" element={<Profile />} />
                     <Route path="create-debtor" element={<CustomerCreate />} />

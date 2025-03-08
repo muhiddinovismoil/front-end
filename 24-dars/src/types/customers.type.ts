@@ -12,4 +12,5 @@ export type CustomerFieldType = {
     phone_number?: string;
     address?: string;
     note?: string;
+    image?: string;
 };

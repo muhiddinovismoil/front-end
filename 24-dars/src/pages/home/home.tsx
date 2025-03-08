@@ -34,6 +34,9 @@ const Home = () => {
 
     const mainData = data1?.data || {};
     const lateDebts = data2?.lateDebts || 0;
+    const navigateToCalendar = () => {
+        navigate("/calendar");
+    };
     const navigateToCreate = () => {
         navigate("/create-debtor");
     };
@@ -57,6 +60,7 @@ const Home = () => {
                         border: "1px solid #ededed",
                         marginBottom: "70px",
                     }}
+                    onClick={navigateToCalendar}
                 >
                     <img src={calendarIco} alt="calendar ico" />
                 </div>
@@ -202,7 +206,7 @@ const Home = () => {
                     style={{
                         fontSize: "24px",
                         borderRadius: "100%",
-                        height: "40px",
+                        height: "45px",
                     }}
                 >
                     +
