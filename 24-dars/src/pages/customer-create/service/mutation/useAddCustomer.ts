@@ -8,9 +8,6 @@ export const useAddCustomer = () => {
             const res = await request.post("/debtors", data);
             return res.data;
         },
-        onSuccess: () => {
-            console.log("Yuklandi");
-        },
         onError: (err) => {
             console.error(err);
         },

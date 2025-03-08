@@ -10,7 +10,6 @@ export const useGetAllDebtors = (page: number, pageSize: number) => {
                     limit: pageSize,
                 },
             });
-            console.log(res.data);
             return res.data;
         },
     });
