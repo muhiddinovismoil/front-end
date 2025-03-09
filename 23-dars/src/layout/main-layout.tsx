@@ -7,7 +7,7 @@ import {
     VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { loadCookieState } from "../config/cookie";
 import profileImg from "../assets/profile-logo.svg";
 
@@ -26,6 +26,9 @@ const MainLayout: React.FC = () => {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
+    const navigateToProfile = () => {
+        navigate("/profile");
+    };
     return (
         <Layout style={{ minHeight: "100vh" }}>
             <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -38,7 +41,7 @@ const MainLayout: React.FC = () => {
                         {
                             key: "1",
                             icon: <UserOutlined />,
-                            label: "Bosh Sahifa",
+                            label: <Link to={"/"}>Bosh Sahifa</Link>,
                         },
                         {
                             key: "2",
@@ -60,6 +63,7 @@ const MainLayout: React.FC = () => {
                         background: colorBgContainer,
                         display: "flex",
                         justifyContent: "space-between",
+                        alignItems: "center",
                     }}
                 >
                     <Button
@@ -79,9 +83,12 @@ const MainLayout: React.FC = () => {
                         }}
                     />
                     <img
+                        onClick={navigateToProfile}
                         style={{
                             marginRight: "15px",
                             padding: "3px",
+                            width: "50px",
+                            height: "50px",
                             cursor: "pointer",
                         }}
                         src={profileImg}
