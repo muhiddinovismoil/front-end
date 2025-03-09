@@ -75,10 +75,10 @@ export const AddDebts = () => {
             debt_period: formData.duration ?? 0,
             description: formData.note ?? "",
             debtor_id: id ?? "",
-            debt_sum: formData.amount ?? 0,
-            month_sum: formData.duration
-                ? (formData.amount ?? 0 / formData.duration).toString()
-                : "0",
+            debt_sum: Number(formData.amount) ?? 0,
+            // month_sum: formData.duration
+            //     ? (formData.amount ?? 0 / formData.duration).toString()
+            //     : "0",
         });
 
         setFormData(initialState);

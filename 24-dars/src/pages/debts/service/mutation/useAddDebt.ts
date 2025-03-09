@@ -6,5 +6,8 @@ export const useAddDebt = () => {
     return useMutation({
         mutationFn: (data: DebtorField) =>
             request.post("/debt", data).then((res) => res.data),
+        onError: (err) => {
+            console.log(err);
+        },
     });
 };

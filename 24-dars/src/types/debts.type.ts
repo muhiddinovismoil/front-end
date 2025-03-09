@@ -17,8 +17,7 @@ export interface DebtorResponseData {
 }
 export interface DebtorField {
     debtor_id: string;
-    debt_sum: string;
-    month_sum: string;
+    debt_sum: number;
     debt_period: number;
     debt_date: string;
     description: string;
