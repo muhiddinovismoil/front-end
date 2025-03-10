@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.font {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.wrap {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    width: 350px;
+    height: 475px;
+}
+
+.custom-select .ant-select-selection-placeholder {
+    color: black !important;
+    font-weight: normal;
+    font-size: 16px;
+}
+.ant-picker-input input::placeholder {
+    font-size: 15px;
+    color: black !important;
+}
