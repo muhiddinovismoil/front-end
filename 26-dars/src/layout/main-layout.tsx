@@ -3,7 +3,6 @@ import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     TeamOutlined,
-    UploadOutlined,
     UserOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
