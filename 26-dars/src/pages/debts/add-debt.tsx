@@ -7,13 +7,8 @@ import {
     Select,
     DatePicker,
     Input,
-    Upload,
 } from "antd";
-import {
-    ArrowLeftOutlined,
-    CalendarTwoTone,
-    PlusOutlined,
-} from "@ant-design/icons";
+import { ArrowLeftOutlined, CalendarTwoTone } from "@ant-design/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import dayjs, { Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -57,9 +52,6 @@ export const AddDebts = () => {
     const handleChange = (field: string, value: any) => {
         setFormData((prev) => ({ ...prev, [field]: value }));
     };
-    const handleImgChange = ({ fileList }: any) => {
-        setFormData((prev) => ({ ...prev, files: fileList }));
-    };
     const onSubmit = () => {
         console.log("Collected Data:", {
             dateTime: formData.dateTime?.format("YYYY-MM-DD HH:mm:ss"),
@@ -76,9 +68,6 @@ export const AddDebts = () => {
             description: formData.note ?? "",
             debtor_id: id ?? "",
             debt_sum: Number(formData.amount) ?? 0,
-            // month_sum: formData.duration
-            //     ? (formData.amount ?? 0 / formData.duration).toString()
-            //     : "0",
         });
 
         setFormData(initialState);
@@ -224,31 +213,6 @@ export const AddDebts = () => {
                         onChange={(e) => handleChange("note", e.target.value)}
                         value={formData.note}
                     />
-                </Flex>
-
-                <Flex vertical>
-                    <p
-                        style={{
-                            paddingBottom: "8px",
-                            fontWeight: "bold",
-                            fontSize: "16px",
-                        }}
-                    >
-                        Rasm biriktirish
-                    </p>
-                    <Upload
-                        listType="picture-card"
-                        onChange={handleImgChange}
-                        maxCount={2}
-                        fileList={formData.files}
-                    >
-                        {formData.files.length < 2 && (
-                            <div>
-                                <PlusOutlined />
-                                <div style={{ marginTop: 8 }}>Upload</div>
-                            </div>
-                        )}
-                    </Upload>
                 </Flex>
 
                 <Button

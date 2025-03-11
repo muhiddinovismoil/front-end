@@ -1,32 +1,44 @@
-import { Typography, Button, Flex, Modal } from "antd";
+import { Typography, Form, Button, Flex, Modal, Input } from "antd";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import React from "react";
 import { useGetPayment } from "./service/query/useGetPayment";
 import { useRepaymentByMonth } from "./service/mutation/useRepaymentByMonth";
 import { RepaymentByMonthI } from "../../types/repayment";
+import { useRepaymentAnyAmount } from "./service/mutation/useRepaymentAnyAmount";
 const { Title } = Typography;
 
 export const Repayment = () => {
     const { id } = useParams();
-    const [isModalOpen, setIsModalOpen] = React.useState(false);
-    const { data, isLoading } = useGetPayment(id);
+    const navigate = useNavigate();
+    const [isOneMonthModalOpen, setOneMonthModalOpen] = React.useState(false);
+    const [isAnyAmountModalOpen, setAnyAmountModalOpen] = React.useState(false);
+    const [isMonthSelectionModalOpen, setMonthSelectionModalOpen] =
+        React.useState(false);
+    const [form] = Form.useForm();
+    const { data } = useGetPayment(id);
     const { mutate, isPending } = useRepaymentByMonth();
+    const { mutate: mutate2, isPending: isPending2 } = useRepaymentAnyAmount();
     const handleRepaymentByMonth = () => {
         const data: RepaymentByMonthI = {
             type: "one_month",
             debt_id: id as string,
         };
         mutate(data);
-        setIsModalOpen(false);
+        setOneMonthModalOpen(false);
     };
-    const handelOpenModal = () => {
-        setIsModalOpen(true);
+    const handleRepaymentAnyAmount = (values: RepaymentByMonthI) => {
+        const data: RepaymentByMonthI = {
+            ...values,
+            type: "any_payment",
+            sum: Number(values.sum),
+            debt_id: id as string,
+        };
+        mutate2(data);
+        setAnyAmountModalOpen(false);
+        form.resetFields();
     };
-    const handelCloseModal = () => {
-        setIsModalOpen(false);
-    };
-    const navigate = useNavigate();
+
     return (
         <>
             <Flex vertical style={{ maxWidth: "500px", gap: "80px" }}>
@@ -51,12 +63,13 @@ export const Repayment = () => {
                         </Title>
                     </div>
                 </Flex>
+
                 <Flex vertical>
                     <Button
                         icon={<ArrowRightOutlined />}
                         iconPosition="end"
                         type="text"
-                        onClick={handelOpenModal}
+                        onClick={() => setOneMonthModalOpen(true)}
                         style={{
                             borderBottom: "1px solid",
                             borderRadius: "0",
@@ -69,18 +82,11 @@ export const Repayment = () => {
                     <Modal
                         title="1 oy uchun so‘ndirish"
                         footer={null}
-                        open={isModalOpen}
-                        loading={isLoading}
-                        onCancel={handelCloseModal}
+                        open={isOneMonthModalOpen}
+                        onCancel={() => setOneMonthModalOpen(false)}
                         centered
                     >
-                        <Flex
-                            vertical
-                            gap={100}
-                            style={{
-                                marginTop: "30px",
-                            }}
-                        >
+                        <Flex vertical gap={100} style={{ marginTop: "30px" }}>
                             <Flex
                                 vertical
                                 style={{
@@ -112,10 +118,12 @@ export const Repayment = () => {
                             </Button>
                         </Flex>
                     </Modal>
+
                     <Button
                         icon={<ArrowRightOutlined />}
                         iconPosition="end"
                         type="text"
+                        onClick={() => setAnyAmountModalOpen(true)}
                         style={{
                             borderBottom: "1px solid",
                             borderRadius: "0",
@@ -125,9 +133,50 @@ export const Repayment = () => {
                     >
                         Har qanday miqdorda so‘ndirish
                     </Button>
+                    <Modal
+                        title="Har qanday miqdorda so‘ndirish"
+                        footer={null}
+                        open={isAnyAmountModalOpen}
+                        onCancel={() => setAnyAmountModalOpen(false)}
+                        centered
+                    >
+                        <Form
+                            form={form}
+                            onFinish={handleRepaymentAnyAmount}
+                            layout="vertical"
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                gap: "40px",
+                            }}
+                        >
+                            <Form.Item
+                                label="Miqdor"
+                                name="sum"
+                                style={{ marginTop: "20px" }}
+                                rules={[
+                                    {
+                                        required: true,
+                                        message: "Miqdor kiriting!",
+                                    },
+                                ]}
+                            >
+                                <Input placeholder="Miqdorni kiriting" />
+                            </Form.Item>
+                            <Button
+                                style={{ width: "100%" }}
+                                type="primary"
+                                htmlType="submit"
+                                loading={isPending2}
+                            >
+                                So'ndirish
+                            </Button>
+                        </Form>
+                    </Modal>
                     <Button
                         icon={<ArrowRightOutlined />}
                         iconPosition="end"
+                        onClick={() => setMonthSelectionModalOpen(true)}
                         type="text"
                         style={{
                             borderBottom: "1px solid",
@@ -138,6 +187,56 @@ export const Repayment = () => {
                     >
                         To‘lov muddatini tanlash
                     </Button>
+                    <Modal
+                        title="To‘lov muddatini tanlang"
+                        footer={null}
+                        open={isMonthSelectionModalOpen}
+                        onCancel={() => setMonthSelectionModalOpen(false)}
+                        centered
+                    >
+                        <Flex
+                            align="center"
+                            justify="space-between"
+                            style={{
+                                marginTop: "20px",
+                                borderBottom: "1px solid #ececec",
+                                paddingBottom: "20px",
+                            }}
+                        >
+                            <Flex vertical gap={4}>
+                                <p
+                                    style={{
+                                        fontWeight: 500,
+                                        fontSize: "14px",
+                                        lineHeight: "171%",
+                                    }}
+                                >
+                                    So‘ndirish:
+                                </p>
+                                <p
+                                    style={{
+                                        fontWeight: "bold",
+                                        fontSize: "16px",
+                                        lineHeight: "150%",
+                                        color: "#3478f7",
+                                    }}
+                                >
+                                    0 so'm
+                                </p>
+                            </Flex>
+                            <Button
+                                type="link"
+                                style={{
+                                    fontWeight: "bold",
+                                    fontSize: "14px",
+                                    lineHeight: "171%",
+                                    color: "#3478f7",
+                                }}
+                            >
+                                Hammasini tanlang
+                            </Button>
+                        </Flex>
+                    </Modal>
                 </Flex>
             </Flex>
         </>

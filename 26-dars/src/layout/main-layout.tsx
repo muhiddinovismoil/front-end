@@ -48,11 +48,6 @@ const MainLayout: React.FC = () => {
                             icon: <TeamOutlined />,
                             label: <Link to={"/customers"}>Mijozlar</Link>,
                         },
-                        {
-                            key: "3",
-                            icon: <UploadOutlined />,
-                            label: "nav 3",
-                        },
                     ]}
                 />
             </Sider>

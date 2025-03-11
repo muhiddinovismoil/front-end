@@ -4,7 +4,7 @@ import Home from "./pages/home/home";
 import MainLayout from "./layout/main-layout";
 import Profile from "./pages/profile/profile";
 import Customers from "./pages/customers/customers";
-import CustomerCreate from "./pages/customer-create/customer-create";
+import CustomerCreate from "./pages/customer-create-edit/customer-create-edit";
 import CalendarCard from "./pages/calendar/calendar";
 import { Debts } from "./pages/debts/debts";
 import { AddDebts } from "./pages/debts/add-debt";
@@ -20,6 +20,10 @@ function App() {
                     <Route path="customers" element={<Customers />} />
                     <Route path="profile" element={<Profile />} />
                     <Route path="create-debtor" element={<CustomerCreate />} />
+                    <Route
+                        path="edit-debtor/:id"
+                        element={<CustomerCreate />}
+                    />
                     <Route path="create-debt/:id" element={<Debts />} />
                     <Route path="debt-repayment/:id" element={<Repayment />} />
                     <Route path="add-debts/:id" element={<AddDebts />} />

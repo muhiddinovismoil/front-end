@@ -5,8 +5,13 @@ import { PlusOutlined } from "@ant-design/icons";
 import { CustomerFieldType } from "../../types/customers.type";
 import { useAddCustomer } from "./service/mutation/useAddCustomer";
 import { useAddImageCustomer } from "./service/mutation/useAddImageCustomer";
+import { useParams } from "react-router-dom";
+import { useEditCustomer } from "./service/mutation/useEditCustomer";
 
 const CustomerCreate: React.FC = () => {
+    const [form] = Form.useForm();
+    const { id } = useParams();
+    const { mutate: mutate3, isPending: isPending3 } = useEditCustomer(id);
     const [showNoteInput, setShowNoteInput] = useState(false);
     const { mutate, isPending } = useAddCustomer();
     const { mutate: mutate2 } = useAddImageCustomer();
@@ -29,16 +34,26 @@ const CustomerCreate: React.FC = () => {
                 },
             });
         }
-    }, [newFile]);
+    }, [newFile, mutate2]);
 
-    const onFinish: FormProps<CustomerFieldType>["onFinish"] = (values) =>
-        mutate({ ...values, image: imgUrl });
+    const onFinish: FormProps<CustomerFieldType>["onFinish"] = (values) => {
+        const payload = { ...values, image: imgUrl };
+        id ? mutate3(payload) : mutate(payload);
+        form.resetFields();
+    };
     return (
         <>
-            <h2 style={{ marginBottom: "40px", fontSize: "28px" }}>
-                Mijoz qo'shish
-            </h2>
+            {!id ? (
+                <h2 style={{ marginBottom: "40px", fontSize: "28px" }}>
+                    Mijoz qo'shish
+                </h2>
+            ) : (
+                <h2 style={{ marginBottom: "40px", fontSize: "28px" }}>
+                    Mijozni tahrirlash
+                </h2>
+            )}
             <Form
+                form={form}
                 name="basic"
                 labelCol={{ span: 8 }}
                 wrapperCol={{ span: 16 }}
@@ -110,15 +125,25 @@ const CustomerCreate: React.FC = () => {
                         </div>
                     )}
                 </Upload>
-
-                <Button
-                    type="primary"
-                    htmlType="submit"
-                    loading={isPending}
-                    style={{ marginTop: 20, width: "400px" }}
-                >
-                    Saqlash
-                </Button>
+                {!id ? (
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        loading={isPending}
+                        style={{ marginTop: 20, width: "400px" }}
+                    >
+                        Saqlash
+                    </Button>
+                ) : (
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        loading={isPending3}
+                        style={{ marginTop: 20, width: "400px" }}
+                    >
+                        O'zgartirish
+                    </Button>
+                )}
             </Form>
         </>
     );
