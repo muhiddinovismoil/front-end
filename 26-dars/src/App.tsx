@@ -8,6 +8,7 @@ import CustomerCreate from "./pages/customer-create/customer-create";
 import CalendarCard from "./pages/calendar/calendar";
 import { Debts } from "./pages/debts/debts";
 import { AddDebts } from "./pages/debts/add-debt";
+import { Repayment } from "./pages/repayment-debt/repayment";
 
 function App() {
     return (
@@ -20,10 +21,7 @@ function App() {
                     <Route path="profile" element={<Profile />} />
                     <Route path="create-debtor" element={<CustomerCreate />} />
                     <Route path="create-debt/:id" element={<Debts />} />
-                    <Route
-                        path="debt-repayment/:id"
-                        element={<h1>Repayment</h1>}
-                    />
+                    <Route path="debt-repayment/:id" element={<Repayment />} />
                     <Route path="add-debts/:id" element={<AddDebts />} />
                 </Route>
                 <Route path="/login" element={<Login />}></Route>
