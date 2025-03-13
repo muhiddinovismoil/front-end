@@ -9,6 +9,7 @@ import CalendarCard from "./pages/calendar/calendar";
 import { Debts } from "./pages/debts/debts";
 import { AddDebts } from "./pages/debts/add-debt";
 import { Repayment } from "./pages/repayment-debt/repayment";
+import ProfileEdit from "./pages/profile/edit-profile";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="calendar" element={<CalendarCard />} />
                     <Route path="customers" element={<Customers />} />
                     <Route path="profile" element={<Profile />} />
+                    <Route path="profile-edit" element={<ProfileEdit />} />
                     <Route path="create-debtor" element={<CustomerCreate />} />
                     <Route
                         path="edit-debtor/:id"

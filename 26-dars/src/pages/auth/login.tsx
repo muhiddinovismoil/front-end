@@ -5,11 +5,18 @@ import logoImg from "../../assets/logo.svg";
 import { authUserT } from "../../types/auth.type";
 import { useLoginApp } from "./service/mutation/useLoginApp";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { loadCookieState } from "../../config/cookie";
 
 export const Login = () => {
     const { mutate, isPending } = useLoginApp();
     const navigate = useNavigate();
+    useEffect(() => {
+        const user = loadCookieState("user_token");
+        if (user) {
+            navigate("/", { replace: true });
+        }
+    }, []);
     const [errorMsg, setErrorMsg] = useState<string | null>(null);
     const onFinish: FormProps<authUserT>["onFinish"] = (values) => {
         mutate(values, {

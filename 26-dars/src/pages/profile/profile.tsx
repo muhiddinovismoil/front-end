@@ -1,63 +1,125 @@
-import React, { useState } from "react";
-import { PlusOutlined } from "@ant-design/icons";
-import { Image, Upload } from "antd";
-import type { GetProp, UploadFile, UploadProps } from "antd";
+import { Form, Button, Flex, Typography, Image, Input } from "antd";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeftOutlined, EditFilled } from "@ant-design/icons";
+import { useGetProfileData } from "./service/query/useGetProfileData";
+import profileImg from "../../assets/profile-logo.svg";
+const { Title } = Typography;
 
-type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0];
-
-const getBase64 = (file: FileType): Promise<string> =>
-    new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = (error) => reject(error);
-    });
-const Profile: React.FC = () => {
-    const [previewOpen, setPreviewOpen] = useState(false);
-    const [previewImage, setPreviewImage] = useState("");
-    const [fileList, setFileList] = useState<UploadFile[]>([]);
-    const handlePreview = async (file: UploadFile) => {
-        if (!file.url && !file.preview) {
-            file.preview = await getBase64(file.originFileObj as FileType);
-        }
-
-        setPreviewImage(file.url || (file.preview as string));
-        setPreviewOpen(true);
+const Profile = () => {
+    const navigate = useNavigate();
+    const { data: profileData } = useGetProfileData();
+    const navigateBack = () => {
+        navigate(-1);
     };
-    const handleChange: UploadProps["onChange"] = ({ fileList: newFileList }) =>
-        setFileList(newFileList);
-    const uploadButton = (
-        <button style={{ border: 0, background: "none" }} type="button">
-            <PlusOutlined />
-            <div style={{ marginTop: 8 }}>Upload</div>
-        </button>
-    );
+    const navigateToEdit = () => {
+        navigate("/profile-edit");
+    };
     return (
         <>
-            <Upload
-                listType="picture-circle"
-                fileList={fileList}
-                onPreview={handlePreview}
-                onChange={handleChange}
-                beforeUpload={() => false}
-                maxCount={1}
-            >
-                {fileList.length >= 1 ? null : uploadButton}
-            </Upload>
-            {previewImage && (
-                <Image
-                    wrapperStyle={{ display: "none" }}
-                    preview={{
-                        visible: previewOpen,
-                        onVisibleChange: (visible) => setPreviewOpen(visible),
-                        afterOpenChange: (visible) =>
-                            !visible && setPreviewImage(""),
+            <Flex vertical style={{ maxWidth: "560px" }}>
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "start",
+                        gap: "40px",
+                        maxWidth: "500px",
                     }}
-                    src={previewImage}
-                />
-            )}
+                >
+                    <Button
+                        onClick={navigateBack}
+                        style={{ marginTop: "3px" }}
+                        type="text"
+                    >
+                        <ArrowLeftOutlined /> Back
+                    </Button>
+                    <Title style={{ fontSize: "32px" }}>
+                        Shaxsiy ma'lumotlar
+                    </Title>
+                </div>
+                <Flex vertical align="center" style={{ paddingTop: "20px" }}>
+                    <Flex
+                        align="center"
+                        style={{ borderRadius: "100%", overflow: "hidden" }}
+                    >
+                        <Image
+                            width={150}
+                            height={145}
+                            style={{
+                                border: "2px solid #1677ff",
+                                padding: "2px",
+                                borderRadius: "100%",
+                            }}
+                            src={profileData?.data?.image || profileImg}
+                        />
+                    </Flex>
+                </Flex>
+                <Flex
+                    vertical
+                    style={{
+                        marginTop: "50px",
+                        height: "290px",
+                    }}
+                    justify="space-between"
+                >
+                    <Form layout="vertical">
+                        <Form.Item label="Ismi familiya">
+                            <Input
+                                value={profileData?.data?.fullname}
+                                disabled
+                                style={{
+                                    paddingTop: "14px",
+                                    paddingBottom: "14px",
+                                    paddingLeft: "16px",
+                                    fontSize: "13px",
+                                    color: "black",
+                                    fontWeight: 400,
+                                }}
+                            />
+                        </Form.Item>
+
+                        <Form.Item label="Telefon raqam">
+                            <Input
+                                value={profileData?.data?.phone_number}
+                                disabled
+                                style={{
+                                    paddingTop: "14px",
+                                    paddingBottom: "14px",
+                                    paddingLeft: "16px",
+                                    fontSize: "13px",
+                                    fontWeight: 400,
+                                    color: "black",
+                                }}
+                            />
+                        </Form.Item>
+
+                        <Form.Item label="Elektron pochta">
+                            <Input
+                                value={profileData?.data?.email}
+                                disabled
+                                type="email"
+                                style={{
+                                    paddingTop: "14px",
+                                    paddingBottom: "14px",
+                                    paddingLeft: "16px",
+                                    fontSize: "13px",
+                                    fontWeight: 400,
+                                    color: "black",
+                                }}
+                            />
+                        </Form.Item>
+                    </Form>
+                </Flex>
+            </Flex>
+            <Button
+                onClick={navigateToEdit}
+                icon={<EditFilled />}
+                type="primary"
+                style={{ fontSize: "15px", marginTop: "50px", padding: "20px" }}
+                iconPosition="end"
+            >
+                Edit Profile
+            </Button>
         </>
     );
 };
-
 export default Profile;

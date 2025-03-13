@@ -5,15 +5,17 @@ import {
     TeamOutlined,
     UserOutlined,
 } from "@ant-design/icons";
-import { Button, Layout, Menu, theme } from "antd";
+import { Button, Flex, Layout, Menu, theme } from "antd";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { loadCookieState } from "../config/cookie";
 import profileImg from "../assets/profile-logo.svg";
+import { useGetProfileData } from "../pages/profile/service/query/useGetProfileData";
 
 const { Header, Sider, Content } = Layout;
 
 const MainLayout: React.FC = () => {
     const navigate = useNavigate();
+    const { data: profileData } = useGetProfileData();
     React.useEffect(() => {
         const user = loadCookieState("user_token");
         if (!user) {
@@ -76,18 +78,25 @@ const MainLayout: React.FC = () => {
                             height: 64,
                         }}
                     />
-                    <img
-                        onClick={navigateToProfile}
-                        style={{
-                            marginRight: "15px",
-                            padding: "3px",
-                            width: "50px",
-                            height: "50px",
-                            cursor: "pointer",
-                        }}
-                        src={profileImg}
-                        alt="profile logo"
-                    />
+                    <Flex align="center" gap={20}>
+                        <p style={{ color: "black", fontWeight: 600 }}>
+                            {profileData?.data?.fullname}
+                        </p>
+                        <img
+                            onClick={navigateToProfile}
+                            style={{
+                                border: "1px solid #1677ff",
+                                marginRight: "15px",
+                                padding: "3px",
+                                width: "50px",
+                                height: "50px",
+                                cursor: "pointer",
+                                borderRadius: "100%",
+                            }}
+                            src={profileData?.data?.image || profileImg}
+                            alt="profile logo"
+                        />
+                    </Flex>
                 </Header>
                 <Content
                     style={{
