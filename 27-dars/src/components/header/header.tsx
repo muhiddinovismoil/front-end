@@ -39,10 +39,12 @@ export const Header = () => {
                             Bog’lanish
                         </p>
                     </Link>
-                    <button className="flex gap-[8px] border pl-[12px] pr-[13px] py-[9px] text-[13px] text-[#019e7f] font-bold rounded-[6px] border-[#019e7f] cursor-pointer mr-[31px]">
-                        <img src={walletIcon.src} alt="wallet icon" />
-                        Payme
-                    </button>
+                    <Link href={"/payments"}>
+                        <button className="flex gap-[8px] border pl-[12px] pr-[13px] py-[9px] text-[13px] text-[#019e7f] font-bold rounded-[6px] border-[#019e7f] cursor-pointer mr-[31px]">
+                            <img src={walletIcon.src} alt="wallet icon" />
+                            Payme
+                        </button>
+                    </Link>
                     <button className="flex items-center cursor-pointer text-[#009e7f] text-[15px] font-normal border gap-[5px] pt-[8px] pr-[8px] pl-[12px] pb-[6px] rounded-[6px]">
                         <img
                             src={flagIcon.src}
