@@ -49,10 +49,10 @@ const ProfileEdit: React.FC = () => {
         formData.append("fullname", values.fullname);
         formData.append("phone_number", values.phone_number);
         formData.append("email", values.email);
-        mutation({ ...values });
         if (fileList.length > 0) {
             formData.append("file", fileList[0].originFileObj as File);
         }
+        mutation({ ...values });
         mutation2(formData);
     };
 
