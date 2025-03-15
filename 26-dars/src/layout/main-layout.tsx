@@ -10,7 +10,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import { loadCookieState } from "../config/cookie";
 import profileImg from "../assets/profile-logo.svg";
 import { useGetProfileData } from "../pages/profile/service/query/useGetProfileData";
-
+// All bugs were solved
 const { Header, Sider, Content } = Layout;
 
 const MainLayout: React.FC = () => {
