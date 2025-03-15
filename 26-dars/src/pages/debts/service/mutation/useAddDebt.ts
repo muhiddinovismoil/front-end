@@ -4,10 +4,18 @@ import { DebtorField } from "../../../../types/debts.type";
 
 export const useAddDebt = () => {
     return useMutation({
-        mutationFn: (data: DebtorField) =>
-            request.post("/debt", data).then((res) => res.data),
+        mutationFn: async (data: DebtorField) => {
+            try {
+                const res = await request.post("/debt", data);
+                console.log(res.data);
+                return res.data;
+            } catch (error) {
+                console.error("Error while adding debt:", error);
+                throw error;
+            }
+        },
         onError: (err) => {
-            console.log(err);
+            console.log("Mutation error:", err);
         },
     });
 };

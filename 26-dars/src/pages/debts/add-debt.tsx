@@ -22,28 +22,28 @@ export const AddDebts = () => {
     const { mutate, isPending } = useAddDebt();
     dayjs.extend(customParseFormat);
     const initialState = {
-        dateTime: null as Dayjs | null,
-        amount: "",
-        duration: null as number | null,
-        note: "",
+        debt_date: null as Dayjs | null,
+        debt_sum: "",
+        debt_period: null as number | null,
+        description: "",
         files: [] as any[],
     };
     const [formData, setFormData] = useState(initialState);
     const handleDateChange = (date: Dayjs | null) => {
         setFormData((prev) => ({
             ...prev,
-            dateTime: date
+            debt_date: date
                 ? date
-                      .hour(prev.dateTime?.hour() || 0)
-                      .minute(prev.dateTime?.minute() || 0)
+                      .hour(prev.debt_date?.hour() || 0)
+                      .minute(prev.debt_date?.minute() || 0)
                 : null,
         }));
     };
     const handleTimeChange = (time: Dayjs | null) => {
         setFormData((prev) => ({
             ...prev,
-            dateTime: prev.dateTime
-                ? prev.dateTime
+            debt_date: prev.debt_date
+                ? prev.debt_date
                       .hour(time?.hour() || 0)
                       .minute(time?.minute() || 0)
                 : time,
@@ -54,20 +54,20 @@ export const AddDebts = () => {
     };
     const onSubmit = () => {
         console.log("Collected Data:", {
-            dateTime: formData.dateTime?.format("YYYY-MM-DD HH:mm:ss"),
-            amount: formData.amount,
-            duration: formData.duration,
-            note: formData.note,
+            debt_date: formData.debt_date?.format("YYYY-MM-DD HH:mm:ss"),
+            debt_sum: formData.debt_sum,
+            debt_period: formData.debt_period,
+            description: formData.description,
             files: formData.files.map((file) => file.name),
         });
         mutate({
-            debt_date: formData.dateTime
-                ? formData.dateTime.format("YYYY-MM-DD HH:mm:ss")
+            debt_date: formData.debt_date
+                ? formData.debt_date.format("YYYY-MM-DD HH:mm:ss")
                 : "",
-            debt_period: formData.duration ?? 0,
-            description: formData.note ?? "",
+            debt_period: formData.debt_period ?? 0,
+            description: formData.description ?? "",
             debtor_id: id ?? "",
-            debt_sum: Number(formData.amount) ?? 0,
+            debt_sum: Number(formData.debt_sum) ?? 0,
         });
 
         setFormData(initialState);
@@ -126,7 +126,7 @@ export const AddDebts = () => {
                             placeholder="Sanani tanlang"
                             format="YYYY-MM-DD"
                             onChange={handleDateChange}
-                            value={formData.dateTime}
+                            value={formData.debt_date}
                         />
                     </div>
                     <div>
@@ -147,7 +147,7 @@ export const AddDebts = () => {
                             }}
                             placeholder="Vaqtni tanlang"
                             onChange={handleTimeChange}
-                            value={formData.dateTime}
+                            value={formData.debt_date}
                         />
                     </div>
                 </Flex>
@@ -164,8 +164,8 @@ export const AddDebts = () => {
                     </p>
                     <Select
                         placeholder="Muddatni tanlang"
-                        onChange={(value) => handleChange("duration", value)}
-                        value={formData.duration}
+                        onChange={(value) => handleChange("debt_period", value)}
+                        value={formData.debt_period}
                         style={{ width: "100%", height: "44px" }}
                         options={[
                             { value: 1, label: "1 oy" },
@@ -193,8 +193,10 @@ export const AddDebts = () => {
                         style={{ height: "44px", backgroundColor: "#f6f6f6" }}
                         placeholder="Mablag'ni kiriting ..."
                         suffix={<p style={{ fontWeight: "bold" }}>so'm</p>}
-                        onChange={(e) => handleChange("amount", e.target.value)}
-                        value={formData.amount}
+                        onChange={(e) =>
+                            handleChange("debt_sum", e.target.value)
+                        }
+                        value={formData.debt_sum}
                     />
                 </Flex>
 
@@ -210,8 +212,10 @@ export const AddDebts = () => {
                     </p>
                     <Input.TextArea
                         style={{ height: "104px", backgroundColor: "#f6f6f6" }}
-                        onChange={(e) => handleChange("note", e.target.value)}
-                        value={formData.note}
+                        onChange={(e) =>
+                            handleChange("description", e.target.value)
+                        }
+                        value={formData.description}
                     />
                 </Flex>
 
