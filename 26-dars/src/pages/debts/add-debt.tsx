@@ -229,7 +229,7 @@ export const AddDebts = () => {
                     onClick={onSubmit}
                     loading={isPending}
                 >
-                    Nasiyani so‘ndirish
+                    Nasiyani qo'shish
                 </Button>
             </Flex>
         </Flex>

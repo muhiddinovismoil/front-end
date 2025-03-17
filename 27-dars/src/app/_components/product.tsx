@@ -1,7 +1,7 @@
 import React from "react";
 import cartIco from "/public/cart.svg";
 import { ProductI } from "../data/types/mock-data.type";
-import { LikeButton } from "@/components/ui/like-button";
+import { LikeButtonWrapper } from "@/components/ui/like-button.wrapper";
 export const Product = ({
     id,
     name,
@@ -25,7 +25,7 @@ export const Product = ({
                         <img src={halal} alt="halal certificate" />
                     </div>
                 ) : null}
-                <LikeButton
+                <LikeButtonWrapper
                     product={{ id, name, price, discounted_price, img }}
                 />
             </div>

@@ -13,7 +13,7 @@ interface LikeButtonProps {
     product: ProductI;
 }
 
-export const LikeButton = ({ product }: LikeButtonProps) => {
+const LikeButton = ({ product }: LikeButtonProps) => {
     const dispatch = useDispatch();
     const likes = useSelector((state: any) => state.likeListSlice.likes);
     const isLiked = likes.some((item: ProductI) => item.id === product.id);
@@ -39,3 +39,4 @@ export const LikeButton = ({ product }: LikeButtonProps) => {
         </button>
     );
 };
+export default LikeButton;

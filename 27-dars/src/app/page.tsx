@@ -14,7 +14,7 @@ export default function Home() {
     return (
         <>
             <div>
-                <div className="flex container pl-[50px]">
+                <div className="flex container pl-[50px]]">
                     <div className="pt-[15.79px]  flex flex-col gap-[15px] items-start pr-[20px]">
                         {buttons.map((item) => {
                             return (
