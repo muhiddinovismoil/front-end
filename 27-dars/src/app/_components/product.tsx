@@ -1,6 +1,7 @@
 import React from "react";
 import cartIco from "/public/cart.svg";
 import { ProductI } from "../data/types/mock-data.type";
+import { LikeButton } from "@/components/ui/like-button";
 export const Product = ({
     id,
     name,
@@ -24,17 +25,20 @@ export const Product = ({
                         <img src={halal} alt="halal certificate" />
                     </div>
                 ) : null}
+                <LikeButton
+                    product={{ id, name, price, discounted_price, img }}
+                />
             </div>
             <div className="mx-[18px] flex flex-col gap-[7px]">
                 <h2 className="cursor-pointer text-[14px] font-normal leading-[150%] text-[#999]">
-                    Qo'y bo'yin (muzlatilgan)
+                    {name}
                 </h2>
                 <div className="flex gap-[12px] items-center">
                     <h3 className="text-[24px] leading-[100%] font-bold text-[#0d1136]">
-                        7,040 <span className="text-[15px]">₩</span>
+                        {price} <span className="text-[15px]">₩</span>
                     </h3>
                     <p className="text-[15px] font-normal leading-[100%] text-[#77798c] line-through">
-                        8,800 ₩
+                        {discounted_price}
                     </p>
                 </div>
             </div>

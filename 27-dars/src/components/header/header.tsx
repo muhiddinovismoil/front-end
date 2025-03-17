@@ -6,6 +6,7 @@ import walletIcon from "/public/wallet.svg";
 import flagIcon from "/public/uzb-flag.svg";
 import arrowIcon from "/public/arrow.svg";
 import profileIcon from "/public/profile.svg";
+import likeListIcon from "/public/likelist.svg";
 import Link from "next/link";
 
 export const Header = () => {
@@ -54,9 +55,16 @@ export const Header = () => {
                         Uz / UZS
                         <img src={arrowIcon.src} alt="arrow" />
                     </button>
-                    <button className="pl-[22px]">
+                    <button className="pl-[18px]">
                         <img src={profileIcon.src} alt="profile icon" />
                     </button>
+                    <Link href={"/like-lists"} className="pl-[10px]">
+                        <img
+                            src={likeListIcon.src}
+                            className="h-[20px]"
+                            alt="LikList"
+                        />
+                    </Link>
                 </div>
             </div>
         </header>

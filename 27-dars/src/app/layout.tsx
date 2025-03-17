@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
+import ReduxProvider from "./providers/redux-provider";
 
 const lato = Lato({
     variable: "--font-lato",
@@ -22,13 +23,15 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${lato.variable} antialiased`}>
-                <div className="flex flex-col min-h-screen justify-between">
-                    <div>
-                        <Header />
-                        {children}
+                <ReduxProvider>
+                    <div className="flex flex-col min-h-screen justify-between">
+                        <div>
+                            <Header />
+                            {children}
+                        </div>
+                        <Footer />
                     </div>
-                    <Footer />
-                </div>
+                </ReduxProvider>
             </body>
         </html>
     );
