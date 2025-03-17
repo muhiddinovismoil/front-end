@@ -12,6 +12,7 @@ import {
 import { Product } from "./_components/product";
 export default function Home() {
     return (
+        // Finished
         <>
             <div>
                 <div className="flex container pl-[50px]]">
