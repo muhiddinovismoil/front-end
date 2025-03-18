@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+    --font-sans: var(--font-roboto-sans);
+    --font-mono: var(--font-roboto-mono);
+}
+
+body {
+    font-family: var(--font-sans);
+}
+
+.container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
