@@ -9,10 +9,11 @@ interface ResponseI {
     total: number;
 }
 export default async function Home() {
-    const data = await fetchWrapper<ResponseI>("?limit=8");
+    const data = await fetchWrapper<ResponseI>("/products?limit=8");
     const { products } = data;
     return (
         <div className="container">
+            <h1 className="pt-[50px] text-3xl font-bold">Products</h1>
             <div className="grid grid-cols-4 py-[80px] gap-y-[15px] gap-x-[25px]">
                 {products.map((item) => {
                     return (
