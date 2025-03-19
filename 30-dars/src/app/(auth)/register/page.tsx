@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { registerUser } from "../_services/auth.service";
+import { signIn } from "next-auth/react";
 
 const Register = () => {
     const { handleSubmit, reset, setError, register } = useForm<RegisterI>();
@@ -23,6 +24,9 @@ const Register = () => {
                 setError("email", { message: err.message });
             }
         });
+    };
+    const handleGoogleSignIn = () => {
+        signIn("google");
     };
     return (
         <div className="border min-h-screen flex justify-center items-center">
@@ -68,6 +72,18 @@ const Register = () => {
                     </div>
                     <button className="bg-blue-500 py-[8px] rounded-[6px] text-white">
                         {transition ? "Loading ..." : "Sign up"}
+                    </button>
+                    <button
+                        type="button"
+                        onClick={handleGoogleSignIn}
+                        className="border py-[6px] rounded-[6px] flex items-center justify-center gap-2 mt-2"
+                    >
+                        <img
+                            src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-tmg5cp5v.png"
+                            alt="Google"
+                            className="w-8 h-8"
+                        />
+                        Sign up with Google
                     </button>
                     <Link
                         href={"/login"}

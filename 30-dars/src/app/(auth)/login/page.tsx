@@ -5,6 +5,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../_services/auth.service";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 const Login = () => {
     const {
         handleSubmit,
@@ -26,6 +27,9 @@ const Login = () => {
                 setError("email", { message: err.message });
             }
         });
+    };
+    const handleGoogleSignIn = () => {
+        signIn("google");
     };
     return (
         <div className="border min-h-screen flex justify-center items-center">
@@ -64,6 +68,19 @@ const Login = () => {
                     >
                         {transition ? "Loading ..." : "Sign in"}
                     </button>
+                    <button
+                        type="button"
+                        onClick={handleGoogleSignIn}
+                        className="py-[6px] text-black border rounded-[6px] flex items-center justify-center gap-2 mt-2"
+                    >
+                        <img
+                            src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-tmg5cp5v.png"
+                            alt="Google"
+                            className="w-8 h-8"
+                        />
+                        Sign in with Google
+                    </button>
+
                     <Link
                         href={"/register"}
                         className="text-[12px] text-end text-red-500"

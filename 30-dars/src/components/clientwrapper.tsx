@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { SessionProvider } from "next-auth/react";
 
 export default function ClientWrapper({
     children,
@@ -14,9 +15,12 @@ export default function ClientWrapper({
         pathname.startsWith("/login") || pathname.startsWith("/register");
 
     return (
-        <div className="flex flex-col min-h-screen justify-between">
-            {!isAuthPage && <Header />} <div>{children}</div>
-            {!isAuthPage && <Footer />}{" "}
-        </div>
+        <SessionProvider>
+            <div className="flex flex-col min-h-screen justify-between">
+                {!isAuthPage && <Header />}
+                <div>{children}</div>
+                {!isAuthPage && <Footer />}
+            </div>
+        </SessionProvider>
     );
 }

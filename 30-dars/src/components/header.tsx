@@ -1,17 +1,27 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
+import { signOut } from "next-auth/react";
 
 export const Header = () => {
     const [userToken, setUserToken] = useState<string | null>(null);
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        const token = Cookies.get("token");
-        setUserToken(token || null);
-        setIsLoaded(true);
+        fetch("/api/auth/token")
+            .then((res) => res.json())
+            .then((data) => {
+                setUserToken(data.token);
+            })
+            .catch(() => setUserToken(null))
+            .finally(() => setIsLoaded(true));
     }, []);
+
+    const handleLogout = async () => {
+        await fetch("/api/auth/logout", { method: "POST" });
+        setUserToken(null);
+        await signOut({ callbackUrl: "/login" });
+    };
 
     return (
         <div>
@@ -30,14 +40,27 @@ export const Header = () => {
                     <Link href={"/docs"}>Docs</Link>
                     <Link href={"/contact"}>Contact</Link>
                     {!isLoaded ? null : userToken ? (
-                        <Link href={"/profile"}>
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/7915/7915522.png"
-                                alt="Profile icon"
-                                width="40"
-                                height="25"
-                            />
-                        </Link>
+                        <div className="flex gap-[60px]">
+                            <Link href={"/profile"}>
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/512/7915/7915522.png"
+                                    alt="Profile icon"
+                                    width="40"
+                                    height="25"
+                                />
+                            </Link>
+                            <button
+                                className="flex items-center gap-[5px] cursor-pointer"
+                                onClick={handleLogout}
+                            >
+                                <img
+                                    src="https://cdn-icons-png.flaticon.com/512/1053/1053210.png"
+                                    alt="logout icon"
+                                    className="w-[30px] h-[30px]"
+                                />
+                                Logout
+                            </button>
+                        </div>
                     ) : (
                         <Link
                             href={"/login"}
