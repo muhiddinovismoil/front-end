@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Hanged Letters";
+    src: url("/fonts/Hanged%20Letters.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Cerapro";
+    src: url("/fonts/Fontspring-DEMO-cerapro-regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Cerapro Medium";
+    src: url("/fonts/Fontspring-DEMO-cerapro-medium.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Cerapro Black";
+    src: url("/fonts/Fontspring-DEMO-cerapro-black.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Cerapro Bold";
+    src: url("/fonts/Fontspring-DEMO-cerapro-bold.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --font-hanged: "Hanged Letters", sans-serif;
+    --font-cerapro: "Cerapro", sans-serif;
+    --font-ceraprobold: "Cerapro Bold", sans-serif;
+    --font-ceraproblack: "Cerapro Medium", sans-serif;
+    --font-cerapromedium: "Cerapro Black", sans-serif;
+}
+.hanged-font {
+    font-family: var(--font-hanged);
+}
+
+.cerapro-font {
+    font-family: var(--font-cerapro);
+}
+.cerapro-bold-font {
+    font-family: var(--font-ceraprobold);
+}
+.cerapro-medium-font {
+    font-family: var(--font-cerapromedium);
+}
+.cerapro-black-font {
+    font-family: var(--font-ceraproblack);
+}
+body {
+    font-family: var(--font-cerapro);
+}
+.container {
+    max-width: 1230px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.swiper-pagination-bullet {
+    background-color: #46a358 !important;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #46a358 !important;
+    opacity: 1;
+}
