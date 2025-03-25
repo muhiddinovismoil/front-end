@@ -145,7 +145,6 @@ export default function Home() {
                                         </li>
                                     </ul>
                                 </div>
-                                {/* <div className="w-[370px] h-[470px] border relative flex justify-center items-center overflow-hidden"> */}
                                 <Image
                                     src="/category.svg"
                                     width={370}
@@ -153,7 +152,6 @@ export default function Home() {
                                     alt="category image"
                                     className="absolute bottom-0 object-cover"
                                 />
-                                {/* </div> */}
                             </div>
                             <div className="w-[100%]">
                                 <div className="flex pb-[31px] justify-between">
@@ -193,8 +191,11 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
+                        <div></div>
                     </div>
                 </section>
+                <section></section>
+                <section></section>
             </main>
         </>
     );
