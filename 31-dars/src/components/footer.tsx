@@ -7,7 +7,7 @@ export const Footer = () => {
         <footer>
             <div className="container">
                 <div className="flex flex-col">
-                    <div className="pt-[25px] pb-[24px] pl-[23px] pr-[25px]">
+                    <div className="pt-[25px]">
                         <div className="flex justify-between bg-[#fbfbfb] pl-[23px] pb-[24px] pr-[25px] pt-[25px]">
                             <div className="max-w-[204px]">
                                 <Image
@@ -24,6 +24,7 @@ export const Footer = () => {
                                     range of cheap and trendy plants.
                                 </p>
                             </div>
+                            <div className="border rotate-[180deg] border-[#E9F2EB]"></div>
                             <div className="max-w-[204px]">
                                 <Image
                                     src={"/footer/footer-img2.svg"}
@@ -39,6 +40,7 @@ export const Footer = () => {
                                     range of cheap and trendy plants.
                                 </p>
                             </div>
+                            <div className="border rotate-[180deg] border-[#E9F2EB]"></div>
                             <div className="max-w-[204px]">
                                 <Image
                                     src={"/footer/footer-img3.svg"}
@@ -79,7 +81,7 @@ export const Footer = () => {
                         </div>
                     </div>
                     <div className="pt-[25px] bg-[#edf6ef] pb-[19px] pl-[23px] pr-[267px]">
-                        <div className="flex pl-[25px] gap-[60px]">
+                        <div className="flex pl-[25px] gap-[60px] items-center">
                             <div className="flex gap-[87px]">
                                 <Link href={"/"}>
                                     <Image
@@ -130,10 +132,185 @@ export const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div></div>
+                    <div className="border-b border-b-[#D7EADB] bg-[#fbfbfb] flex justify-between pt-[34px] pb-[28px] pl-[23px] pr-[155px]">
+                        <div className="max-w-[100px]">
+                            <h2 className="text-[18px] text-[#3d3d3d] cerapro-bold-font">
+                                My Account
+                            </h2>
+                            <ul className="">
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        My Account
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Our Stores
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Contact us
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Career
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Specials
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="max-w-[137px]">
+                            <h2 className="text-[18px] text-[#3d3d3d] cerapro-bold-font">
+                                Help & Guide
+                            </h2>
+                            <ul>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Help Center
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        How to Buy
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Shipping & Delivering
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Product Policy
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        How to Return
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="w-[93px]">
+                            <h2 className="text-[18px] text-[#3d3d3d] cerapro-bold-font">
+                                Categories
+                            </h2>
+                            <ul>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        House Plants
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Potter Plants
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Seeds
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Small Plants
+                                    </p>
+                                </li>
+                                <li>
+                                    <p className="text-[14px] leading-[214%] text-[#3d3d3d]">
+                                        Accessories
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="max-w-[224px] flex flex-col gap-y-[33px]">
+                            <div>
+                                <h2 className="text-[18px] text-[#3d3d3d] cerapro-bold-font pb-[20px]">
+                                    Social Media
+                                </h2>
+                                <div>
+                                    <ul className="flex gap-[10px]">
+                                        <li>
+                                            <Link href={"/"}>
+                                                <Image
+                                                    src={"/footer/facebook.svg"}
+                                                    width={30}
+                                                    height={30}
+                                                    alt="social media icons"
+                                                />
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href={"/"}>
+                                                <Image
+                                                    src={
+                                                        "/footer/instagram.svg"
+                                                    }
+                                                    width={30}
+                                                    height={30}
+                                                    alt="social media icons"
+                                                />
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href={"/"}>
+                                                <Image
+                                                    src={"/footer/twitter.svg"}
+                                                    width={30}
+                                                    height={30}
+                                                    alt="social media icons"
+                                                />
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href={"/"}>
+                                                <Image
+                                                    src={
+                                                        "/footer/linkdedin.svg"
+                                                    }
+                                                    width={30}
+                                                    height={30}
+                                                    alt="social media icons"
+                                                />
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href={"/"}>
+                                                <Image
+                                                    src={"/footer/youtube.svg"}
+                                                    width={30}
+                                                    height={30}
+                                                    alt="social media icons"
+                                                />
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="flex flex-col gap-y-[13px]">
+                                <h2 className="text-[18px] text-[#3d3d3d] cerapro-bold-font">
+                                    We accept
+                                </h2>
+                                <Image
+                                    src={"/footer/payments.svg"}
+                                    width={224}
+                                    height={26}
+                                    alt="payments icon"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="text-center">
-                    <p>© 2021 GreenShop. All Rights Reserved.</p>
+                <div className="text-center pt-[7px] pb-[13px]">
+                    <p className="text-[14px] text-[#3d3d3d] leading-[214%]">
+                        © 2021 GreenShop. All Rights Reserved.
+                    </p>
                 </div>
             </div>
         </footer>
