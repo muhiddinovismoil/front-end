@@ -1,8 +1,9 @@
+import { BlogsCard } from "@/components/cards/blogs-card";
 import { ProductCard } from "@/components/cards/product-card";
 import { CustomRangeSlider } from "@/components/client/custom-range";
 import { ProductType } from "@/components/client/product-type";
 import Hero from "@/components/client/swiper";
-import { allProducts } from "@/data/data";
+import { allProducts, blogsData } from "@/data/data";
 import Image from "next/image";
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
                 <section className="pt-[40px]">
                     <div className="container">
                         <div className="flex gap-[50px]">
-                            <div className="relative bg-[#fbfbfb] flex flex-col grow w-[310px]">
+                            <div className="bg-[#fbfbfb] flex flex-col w-[310px]">
                                 <div>
                                     <h2 className="pl-[18px] pt-[19px] pb-[7px] text-[18px] text-[#3d3d3d] font-bold">
                                         Categories
@@ -145,13 +146,16 @@ export default function Home() {
                                         </li>
                                     </ul>
                                 </div>
-                                <Image
-                                    src="/category.svg"
-                                    width={370}
-                                    height={470}
-                                    alt="category image"
-                                    className="absolute bottom-0 object-cover"
-                                />
+                                <div className="relative">
+                                    <div className="absolute left-0 w-[310px] h-[470px]">
+                                        <Image
+                                            width={370}
+                                            height={470}
+                                            src={"/category.svg"}
+                                            alt="category photo"
+                                        />
+                                    </div>
+                                </div>
                             </div>
                             <div className="w-[100%]">
                                 <div className="flex pb-[31px] justify-between">
@@ -194,8 +198,73 @@ export default function Home() {
                         <div></div>
                     </div>
                 </section>
-                <section></section>
-                <section></section>
+                <section className="pt-[94px]">
+                    <div className="container">
+                        <div className="flex gap-[28px] relative">
+                            <div className="max-w-[586px] flex bg-[#fbfbfb]">
+                                {/* <Image
+                                    src={"/about.svg"}
+                                    alt="about image"
+                                    className="absolute"
+                                    width={292}
+                                    height={292}
+                                /> */}
+                                <div className="flex flex-col">
+                                    <h2>Summer Cactus & Succulents</h2>
+                                    <p>
+                                        We are online plant shop offering a wide
+                                        range of cheap and trendy plants
+                                    </p>
+                                    <button>Find More →</button>
+                                </div>
+                            </div>
+                            <div className="max-w-[586px] flex bg-[#fbfbfb]">
+                                {/* <Image
+                                    src={"/about2.svg"}
+                                    alt="about image"
+                                    className="absolute"
+                                    width={287}
+                                    height={287}
+                                /> */}
+                                <div className="flex flex-col">
+                                    <h2>Styling Trends & Much More</h2>
+                                    <p>
+                                        We are online plant shop offering a wide
+                                        range of cheap and trendy plants
+                                    </p>
+                                    <button>Find More →</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className="pt-[138px] pb-[100px]">
+                    <div className="container">
+                        <div className="text-center flex flex-col gap-y-[15px] pb-[35px]">
+                            <h2 className="text-[30px] leading-[53%] cerapro-bold-font text-[#3d3d3d]">
+                                Our Blog Posts
+                            </h2>
+                            <p className="text-[14px] text-[#727272] leading-[171%]">
+                                We are an online plant shop offering a wide
+                                range of cheap and trendy plants.{" "}
+                            </p>
+                        </div>
+                        <div className="flex gap-[43px]">
+                            {blogsData.map((item) => {
+                                return (
+                                    <BlogsCard
+                                        key={item.id}
+                                        id={item.id}
+                                        title={item.title}
+                                        date={item.date}
+                                        img={item.img}
+                                        description={item.description}
+                                    />
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
             </main>
         </>
     );

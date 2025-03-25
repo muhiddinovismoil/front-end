@@ -1,3 +1,4 @@
+import { BlogsI } from "./types/blogs";
 import { ProductI } from "./types/products";
 
 export const allProducts: ProductI[] = [
@@ -56,5 +57,38 @@ export const allProducts: ProductI[] = [
         image: "/products/product9.svg",
         price: "$39.00",
         name: "Chinese Evergreen",
+    },
+];
+export const blogsData: BlogsI[] = [
+    {
+        id: "c214223d-5835-4b4d-af38-8a5aee5101ba",
+        date: "September 12  I Read in 6 minutes",
+        img: "/blogpost-section/blog.png",
+        title: "Cactus & Succulent Care Tips",
+        description:
+            "Cacti are succulents are easy care plants for any home or patio. ",
+    },
+    {
+        id: "24a0d474-a9b0-424d-bb57-c9f604cd7040",
+        date: "September 13  I Read in 2 minutes",
+        img: "/blogpost-section/blog2.png",
+        title: "Top 10 Succulents for Your Home",
+        description: "Best in hanging baskets. Prefers medium to high light.",
+    },
+    {
+        id: "be795f98-ed3f-4beb-8416-667478703e48",
+        date: "September 15  I Read in 3 minutes",
+        img: "/blogpost-section/blog3.png",
+        title: "Cacti & Succulent Care Tips",
+        description:
+            "Cacti and succulents thrive in containers and because most are..",
+    },
+    {
+        id: "bca02a39-889c-4afb-9740-fbb5d7558f36",
+        date: "September 15  I Read in 2 minutes",
+        img: "/blogpost-section/blog4.png",
+        title: "Best Houseplants Room by Room",
+        description:
+            "The benefits of houseplants are endless. In addition to..",
     },
 ];
