@@ -1,5 +1,6 @@
 import { ProductI } from "@/data/types/products";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export const ProductCard = ({
@@ -26,7 +27,9 @@ export const ProductCard = ({
                 ) : null}
             </div>
             <div className="flex flex-col gap-y-[6px]">
-                <p className="text-[#3d3d3d]">{name}</p>
+                <Link href={`/shop/${id}`} className="text-[#3d3d3d]">
+                    {name}
+                </Link>
                 <div className="flex gap-[16px] items-center">
                     <p className="cerapro-bold-font text-[18px] text-[#46a358]">
                         {price}

@@ -1,4 +1,5 @@
 import { BlogsI } from "./types/blogs";
+import { CategoryI } from "./types/categories";
 import { ProductI } from "./types/products";
 
 export const allProducts: ProductI[] = [
@@ -90,5 +91,69 @@ export const blogsData: BlogsI[] = [
         title: "Best Houseplants Room by Room",
         description:
             "The benefits of houseplants are endless. In addition to..",
+    },
+];
+export const categoriesData: CategoryI[] = [
+    {
+        id: "044a68d0-6751-4586-8b6c-0ca724e62b0f",
+        name: "House Plants",
+        count: 33,
+    },
+    {
+        id: "9a20b67c-c0a7-47f7-940f-03d27e52ab03",
+        name: "Potter Plants",
+        count: 12,
+    },
+    {
+        id: "9c3bb93d-c9b8-41e3-8a37-1f124435247f",
+        name: "Seeds",
+        count: 65,
+    },
+    {
+        id: "c3d489a5-9ab9-4784-9ab2-63c03006f0e4",
+        name: "Small Plants",
+        count: 39,
+    },
+    {
+        id: "4128b67c-417c-425d-a387-15049512ffec",
+        name: "Big Plants",
+        count: 23,
+    },
+    {
+        id: "25caa758-01b1-4a90-963d-0ca590ca6347",
+        name: "Succulents",
+        count: 17,
+    },
+    {
+        id: "d82e3181-aead-45d8-9dcc-6eeeac34e5d3",
+        name: "Trerrariums",
+        count: 19,
+    },
+    {
+        id: "f115020c-a8cc-4c9a-82cd-e3de19f5aa4c",
+        name: "Gardening",
+        count: 13,
+    },
+    {
+        id: "06736760-e459-4c2f-9b01-9a7ab1d34d11",
+        name: "Accessories",
+        count: 18,
+    },
+];
+export const sizeData = [
+    {
+        id: "61382f12-95e3-49c1-8fb4-812f2bdfff53",
+        name: "Small",
+        count: 119,
+    },
+    {
+        id: "696c58c4-0224-4a2f-9225-867d5eb2717e",
+        name: "Medium",
+        count: 86,
+    },
+    {
+        id: "5f48244b-5b12-49cd-bdca-49cd74f510e9",
+        name: "Large",
+        count: 78,
     },
 ];

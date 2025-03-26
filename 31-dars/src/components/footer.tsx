@@ -237,7 +237,7 @@ export const Footer = () => {
                                 <div>
                                     <ul className="flex gap-[10px]">
                                         <li>
-                                            <Link href={"/"}>
+                                            <Link href={"https://facebook.com"}>
                                                 <Image
                                                     src={"/footer/facebook.svg"}
                                                     width={30}
@@ -247,7 +247,9 @@ export const Footer = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={"/"}>
+                                            <Link
+                                                href={"https://instagram.com"}
+                                            >
                                                 <Image
                                                     src={
                                                         "/footer/instagram.svg"
@@ -259,7 +261,7 @@ export const Footer = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={"/"}>
+                                            <Link href={"https://x.com"}>
                                                 <Image
                                                     src={"/footer/twitter.svg"}
                                                     width={30}
@@ -269,7 +271,7 @@ export const Footer = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={"/"}>
+                                            <Link href={"https://linkedin.com"}>
                                                 <Image
                                                     src={
                                                         "/footer/linkdedin.svg"
@@ -281,7 +283,7 @@ export const Footer = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={"/"}>
+                                            <Link href={"https://youtube.com"}>
                                                 <Image
                                                     src={"/footer/youtube.svg"}
                                                     width={30}
