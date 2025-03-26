@@ -58,17 +58,25 @@ const ProductSale = () => {
                                 />
                             </div>
                         </div>
-                        <div>
-                            <h2>Barberton Daisy</h2>
-                            <div>
-                                <p>$119.00</p>
+                        <div className="w-[574px]">
+                            <h2 className="cerapro-bold-font text-[28px] text-[#3d3d3d]">
+                                Barberton Daisy
+                            </h2>
+                            <div className="flex justify-between border-b items-center pb-[11px]">
+                                <p className="cerapro-bold-font text-[22px] text-[#46a358]">
+                                    $119.00
+                                </p>
                                 <div>
-                                    <p>19 Customer Review</p>
+                                    <p className="leading-[107%] text-[15px] text-[#3d3d3d]">
+                                        19 Customer Review
+                                    </p>
                                 </div>
                             </div>
-                            <div>
-                                <h3>Short Description:</h3>
-                                <p>
+                            <div className="pt-[15px] flex flex-col gap-[10px]">
+                                <h3 className="text-[#3d3d3d] cerapro-medium-font text-[15px]">
+                                    Short Description:
+                                </h3>
+                                <p className="leading-[171%] text-[#727272] text-[14px]">
                                     The ceramic cylinder planters come with a
                                     wooden stand to help elevate your plants off
                                     the ground. The ceramic cylinder planters
@@ -76,8 +84,10 @@ const ProductSale = () => {
                                     your plants off the ground.{" "}
                                 </p>
                             </div>
-                            <div>
-                                <p>Size:</p>
+                            <div className="pt-[24px]">
+                                <p className="text-[#3d3d3d] cerapro-medium-font text-[15px]">
+                                    Size:
+                                </p>
                             </div>
                         </div>
                     </div>

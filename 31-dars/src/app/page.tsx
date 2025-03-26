@@ -8,9 +8,12 @@ import Image from "next/image";
 import Pagination from "@/components/client/pagination";
 import { CategoriesList } from "@/components/client/categories-list";
 import { SizeList } from "@/components/client/size-list";
-// import { Сategories } from "@/components/cards/categories";
+import fetchWrapper from "@/service/fetcher";
 
-export default function Home() {
+export default async function Home() {
+    const items = await fetchWrapper<ProductResponse>("/category", {
+        method: "GET",
+    });
     return (
         <>
             <main>
@@ -29,7 +32,7 @@ export default function Home() {
                                         <h2 className="pl-[18px] pt-[19px] pb-[7px] text-[18px] text-[#3d3d3d] font-bold">
                                             Categories
                                         </h2>
-                                        <CategoriesList />
+                                        <CategoriesList data={items.data} />
                                     </div>
                                     <div className="pr-[60px] pt-[36px]">
                                         <h2 className="pl-[18px] text-[18px] text-[#3d3d3d] font-bold">

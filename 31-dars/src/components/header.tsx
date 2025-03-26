@@ -16,6 +16,7 @@ export const Header = () => {
                                     width={150}
                                     height={34.3}
                                     src={"/header/logo.svg"}
+                                    className="w-auto h-auto"
                                 />
                             </Link>
                         </div>
