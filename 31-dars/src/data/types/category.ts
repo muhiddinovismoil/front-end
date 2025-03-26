@@ -1,4 +1,4 @@
-interface Category {
+export interface Category {
     id: string;
     created_at: string;
     updated_at: string;
@@ -9,7 +9,7 @@ interface Category {
     products: Product[];
 }
 
-interface Product {
+export interface Product {
     id: string;
     created_at: string;
     updated_at: string;
@@ -28,8 +28,16 @@ interface Product {
     reviews: any[];
 }
 
-interface ProductResponse {
+export interface CategoryResponse {
     status_code: 200;
     message: "success";
     data: Category[];
+}
+export interface ProductResponse {
+    status_code: 200;
+    message: "success";
+    data: {
+        products: Product[];
+        productCount: number;
+    };
 }

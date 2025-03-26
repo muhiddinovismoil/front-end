@@ -1,19 +1,21 @@
+import Image from "next/image";
+import { blogsData } from "@/data/data";
+import fetchWrapper from "@/service/fetcher";
+import Hero from "@/components/client/swiper";
+import Pagination from "@/components/client/pagination";
+import { SizeList } from "@/components/client/size-list";
 import { BlogsCard } from "@/components/cards/blogs-card";
 import { ProductCard } from "@/components/cards/product-card";
-import { CustomRangeSlider } from "@/components/client/custom-range";
 import { ProductType } from "@/components/client/product-type";
-import Hero from "@/components/client/swiper";
-import { allProducts, blogsData, categoriesData } from "@/data/data";
-import Image from "next/image";
-import Pagination from "@/components/client/pagination";
+import { CustomRangeSlider } from "@/components/client/custom-range";
 import { CategoriesList } from "@/components/client/categories-list";
-import { SizeList } from "@/components/client/size-list";
-import fetchWrapper from "@/service/fetcher";
+import { CategoryResponse, ProductResponse } from "@/data/types/category";
 
 export default async function Home() {
-    const items = await fetchWrapper<ProductResponse>("/category", {
+    const items = await fetchWrapper<CategoryResponse>("/category", {
         method: "GET",
     });
+    const { data } = await fetchWrapper<ProductResponse>("/product?limit=9");
     return (
         <>
             <main>
@@ -86,18 +88,14 @@ export default async function Home() {
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-3 gap-x-[80px] gap-y-[70px]">
-                                    {allProducts.map((item) => {
+                                    {data.products.map((item) => {
                                         return (
                                             <ProductCard
                                                 key={item.id}
                                                 id={item.id}
-                                                name={item.name}
+                                                name={item.title}
                                                 price={item.price}
-                                                image={item.image}
-                                                discount_p={item.discount_p}
-                                                discounted_price={
-                                                    item.discounted_price
-                                                }
+                                                image={item.picture}
                                             />
                                         );
                                     })}
