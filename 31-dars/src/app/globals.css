@@ -61,6 +61,9 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+.custom-swiper .swiper-pagination {
+    bottom: 0 !important;
+}
 .swiper-pagination-bullet {
     background-color: #46a358 !important;
     opacity: 0.5;

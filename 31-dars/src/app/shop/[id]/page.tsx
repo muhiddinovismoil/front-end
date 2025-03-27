@@ -1,4 +1,5 @@
 import { Counter } from "@/components/client/counter";
+import { ProductSliders } from "@/components/client/product-sliders";
 import { SizeButtons } from "@/components/size-button/size-buttons";
 import { Product } from "@/data/types/category";
 import fetchWrapper from "@/service/fetcher";
@@ -11,8 +12,8 @@ interface ResponseOneProduct {
     message: string;
     data: Product;
 }
-const ProductSale = async ({ params }: { params: { id: string } }) => {
-    const id = await params.id;
+const ProductSale = async ({ params }: { params: Promise<{ id: string }> }) => {
+    const { id } = await params;
     const { data } = await fetchWrapper<ResponseOneProduct>(`/product/${id}`);
     return (
         <main>
@@ -135,12 +136,29 @@ const ProductSale = async ({ params }: { params: { id: string } }) => {
                                     </span>
                                 </p>
                             </div>
-                            <div className="pt-[5px]">
+                            <div className="pt-[5px] flex gap-[16px]">
                                 <p className="text-[15px] text-[#3d3d3d] font-medium leading-[107%] cerapro-medium-font">
                                     Share this products:
                                 </p>
+                                <img
+                                    width={112}
+                                    height={18}
+                                    className="cursor-pointer"
+                                    src="/product-detail-social.png"
+                                    alt="social icons"
+                                />
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section className="pt-[94px] pb-[128px]">
+                <div className="container">
+                    <h2 className="text-[17px] leading-[94%] text-[#42a358] cerapro-bold-font border-b pb-[12px] border-b-[#42a358]">
+                        Releted Products
+                    </h2>
+                    <div>
+                        <ProductSliders />
                     </div>
                 </div>
             </section>
