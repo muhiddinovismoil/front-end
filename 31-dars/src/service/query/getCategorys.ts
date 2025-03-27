@@ -1,9 +1,9 @@
-import { ProductResponse } from "@/data/types/category";
+import { CategoryResponse } from "@/data/types/category";
 import { useQuery } from "@tanstack/react-query";
 
-export const getCategoryFetch = async (): Promise<ProductResponse> => {
+export const getCategoryFetch = async (): Promise<CategoryResponse> => {
     const res = await fetch(
-        `${process.env.BACKEND_BASE_URL}/category
+        `http://13.233.2.40:3133/api/v1/category
       `
     );
     if (!res.ok) {

@@ -1,46 +1,62 @@
 "use client";
 import React, { useState } from "react";
+import { Range } from "react-range";
 
-export const CustomRangeSlider = () => {
-    const [value, setValue] = useState(50);
+const CustomRangeSlider = ({
+    rangeFn,
+}: {
+    rangeFn: (range: number[]) => void;
+}) => {
+    const [values, setValues] = useState([100, 1500]);
 
     return (
-        <div className="flex items-center justify-center w-full">
-            <div className="relative w-[214px] h-[15px]">
-                <div className="absolute top-1/2 left-0 w-full h-[6px] bg-gray-300 rounded-full transform -translate-y-1/2"></div>
-                <div
-                    className="absolute top-1/2 left-0 h-[6px] bg-green-600 rounded-full transform -translate-y-1/2"
-                    style={{ width: `${value}%` }}
-                ></div>
-                <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={value}
-                    onChange={(e) => setValue(Number(e.target.value))}
-                    className="w-full h-full bg-transparent appearance-none absolute top-0 left-0 cursor-pointer"
-                    style={{
-                        WebkitAppearance: "none",
-                        outline: "none",
-                    }}
-                />
-                <div
-                    className="absolute w-[15px] h-[15px] bg-white border-4 border-green-600 rounded-full"
-                    style={{
-                        top: "50%",
-                        left: "0%",
-                        transform: "translate(-50%, -50%)",
-                    }}
-                ></div>
-                <div
-                    className="absolute w-[15px] h-[15px] bg-white border-4 border-green-600 rounded-full"
-                    style={{
-                        top: "50%",
-                        left: `${value}%`,
-                        transform: "translate(-50%, -50%)",
-                    }}
-                ></div>
-            </div>
+        <div className="w-[230px]  mt-10 pl-[12px]">
+            <Range
+                step={20}
+                min={20}
+                max={2000}
+                values={values}
+                onChange={(newValues) => {
+                    rangeFn(newValues), setValues(newValues);
+                }}
+                renderTrack={({ props, children }) => (
+                    <div
+                        {...props}
+                        className="relative h-[6px] w-full bg-[#BADCC1] rounded-lg"
+                    >
+                        <div
+                            className="absolute h-full bg-[#42a358]"
+                            style={{
+                                left: `${(values[0] / 2000) * 100}%`,
+                                right: `${100 - (values[1] / 2000) * 100}%`,
+                            }}
+                        />
+                        {React.Children.map(children, (child: any, index) =>
+                            React.cloneElement(child, { key: index })
+                        )}
+                    </div>
+                )}
+                renderThumb={({ props }) => {
+                    const { key, ...restProps } = props;
+                    return (
+                        <div
+                            key={key}
+                            {...restProps}
+                            className="h-5 w-5 border-[#fbfbfb] border-4 bg-[#42a358] rounded-full shadow-lg 
+                outline-none focus:ring-0 "
+                        />
+                    );
+                }}
+            />
+
+            <label className=" text-lg font-medium text-[#3d3d3d] flex mt-[15px]">
+                Price :{" "}
+                <p className="text-[var(--primary)] font-bold">
+                    ${values[0]} - ${values[1]}
+                </p>
+            </label>
         </div>
     );
 };
+
+export default CustomRangeSlider;

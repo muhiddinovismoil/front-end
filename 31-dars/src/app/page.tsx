@@ -3,12 +3,10 @@ import { blogsData } from "@/data/data";
 import fetchWrapper from "@/service/fetcher";
 import Hero from "@/components/client/swiper";
 import Pagination from "@/components/client/pagination";
-import { SizeList } from "@/components/client/size-list";
 import { BlogsCard } from "@/components/cards/blogs-card";
-import { CustomRangeSlider } from "@/components/client/custom-range";
-import { CategoriesList } from "@/components/client/categories-list";
 import { CategoryResponse } from "@/data/types/category";
 import ProductWrappers from "@/components/wrapper/product-wrapper";
+import { Filter } from "@/components/filter/filter";
 
 export default async function Home() {
     const items = await fetchWrapper<CategoryResponse>("/category", {
@@ -25,47 +23,6 @@ export default async function Home() {
                 <section className="pt-[40px]">
                     <div className="container">
                         <div className="flex gap-[50px]">
-                            <div className=" w-[310px]">
-                                {" "}
-                                <div className="bg-[#fbfbfb] flex flex-col ">
-                                    <div>
-                                        <h2 className="pl-[18px] pt-[19px] pb-[7px] text-[18px] text-[#3d3d3d] font-bold">
-                                            Categories
-                                        </h2>
-                                        <CategoriesList data={items.data} />
-                                    </div>
-                                    <div className="pr-[60px] pt-[36px]">
-                                        <h2 className="pl-[18px] text-[18px] text-[#3d3d3d] font-bold">
-                                            Price Range
-                                        </h2>
-                                        <div className="pl-[30px] pt-[20px] w-[214px] flex flex-col gap-[16px]">
-                                            <CustomRangeSlider />
-                                            <p>
-                                                Price:{" "}
-                                                <span className="cerapro-bold-font text-[#42a358]">
-                                                    $39 - $1230
-                                                </span>
-                                            </p>
-                                            <button className="cursor-pointer border cerapro-bold-font text-[#fff] leading-[125%] bg-[#42a358] rounded-[6px] w-[90px] py-[8px]">
-                                                Filter
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="pt-[46px] pb-[5px]">
-                                        <h2 className="pl-[18px] pb-[7px] text-[18px] text-[#3d3d3d] font-bold">
-                                            Size
-                                        </h2>
-                                        <SizeList />
-                                    </div>
-                                </div>
-                                <div className="w-[312px] h-[470px]">
-                                    <img
-                                        className="w-full h-full object-cover"
-                                        src={"/category.svg"}
-                                        alt="category photo"
-                                    />
-                                </div>
-                            </div>
                             <ProductWrappers />
                         </div>
                         <div className="text-end flex justify-end pt-[90px]">
