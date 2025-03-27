@@ -6,6 +6,7 @@ import { categoriesData, sizeData } from "@/data/data";
 import { getCategory } from "@/service/query/getCategorys";
 import { IQuery } from "../cards/products";
 import { SizeItem } from "../cards/size-item";
+import LoadingSpinner from "../loading/loading";
 
 export const Filter = ({
     filterFn,
@@ -24,7 +25,7 @@ export const Filter = ({
         setMax(range[1]);
     };
 
-    const { data } = getCategory();
+    const { data, isLoading } = getCategory();
     return (
         <div className=" w-[310px]">
             {" "}
@@ -33,22 +34,26 @@ export const Filter = ({
                     <h2 className="pl-[18px] pt-[19px] pb-[7px] text-[18px] text-[#3d3d3d] font-bold">
                         Categories
                     </h2>
-                    <ul className="flex flex-col justify-between h-[360px] pl-[30px] pr-[24px]">
-                        {data?.data.map((item) => (
-                            <СategoriesItem
-                                key={item.id}
-                                count={item.products.length}
-                                name={item.name}
-                                isActive={activeCategory === item.id}
-                                onClick={() => {
-                                    setActiveCategory(item.id),
-                                        filterFn({
-                                            category_id: item.id,
-                                        });
-                                }}
-                            />
-                        ))}
-                    </ul>
+                    {isLoading ? (
+                        <LoadingSpinner />
+                    ) : (
+                        <ul className="flex flex-col justify-between h-[360px] pl-[30px] pr-[24px]">
+                            {data?.data.map((item) => (
+                                <СategoriesItem
+                                    key={item.id}
+                                    count={item.products.length}
+                                    name={item.name}
+                                    isActive={activeCategory === item.id}
+                                    onClick={() => {
+                                        setActiveCategory(item.id),
+                                            filterFn({
+                                                category_id: item.id,
+                                            });
+                                    }}
+                                />
+                            ))}
+                        </ul>
+                    )}
                 </div>
                 <div className="pr-[60px] pt-[36px]">
                     <h2 className="pl-[18px] text-[18px] text-[#3d3d3d] font-bold">

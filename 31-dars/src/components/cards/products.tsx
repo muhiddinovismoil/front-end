@@ -4,6 +4,7 @@ import { ProductType } from "../client/product-type";
 import { ProductCard } from "./product-card";
 import { getProducts, IState } from "@/service/query/getProduct";
 import { Filter } from "../filter/filter";
+import LoadingSpinner from "../loading/loading";
 
 export interface IQuery {
     category_id?: string;
@@ -29,7 +30,9 @@ export const Products = () => {
             query: { ...prev?.query, ...filter },
         }));
     };
-    const { data } = getProducts(filter ?? { page: 1, limit: 9, query: {} });
+    const { data, isLoading } = getProducts(
+        filter ?? { page: 1, limit: 9, query: {} }
+    );
     return (
         <>
             <Filter filterFn={(filter: IQuery) => filterFn(filter)} />
@@ -66,19 +69,35 @@ export const Products = () => {
                         </select>
                     </div>
                 </div>
-                <div className="grid grid-cols-3 gap-x-[80px] gap-y-[70px]">
-                    {data?.data?.products?.map((item) => {
-                        return (
-                            <ProductCard
-                                key={item.id}
-                                id={item.id}
-                                name={item.title}
-                                price={item.price}
-                                image={item.picture}
-                            />
-                        );
-                    })}
-                </div>
+                {isLoading ? (
+                    <LoadingSpinner />
+                ) : data?.data.products.length === 0 ? (
+                    <div className=" flex  flex-col items-center justify-center mt-[30%]">
+                        <p className="text-4xl font-bold  text-[#42a358]">
+                            NO DATA
+                        </p>
+                        <button
+                            onClick={() => setFilter(null)}
+                            className="text-[18px] px-[27px] py-[8px] rounded-[6px] mt-[10px] font-bold  text-[#fff] bg-[#42a358]"
+                        >
+                            Reset
+                        </button>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-3 gap-x-[80px] gap-y-[70px]">
+                        {data?.data?.products?.map((item) => {
+                            return (
+                                <ProductCard
+                                    key={item.id}
+                                    id={item.id}
+                                    name={item.title}
+                                    price={item.price}
+                                    image={item.picture}
+                                />
+                            );
+                        })}
+                    </div>
+                )}
             </div>
         </>
     );

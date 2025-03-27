@@ -15,17 +15,17 @@ export const Counter = () => {
     };
 
     return (
-        <div className="flex items-center">
+        <div className="flex items-center gap-[23px]">
             <button
                 onClick={decrement}
-                className="px-3 py-2 bg-gray-200 rounded text-lg"
+                className="w-[33px] cursor-pointer h-[38px] rounded-[31px] bg-[#42a358] text-lg text-[#fff]"
             >
                 -
             </button>
             <p className="text-xl font-bold">{count}</p>
             <button
                 onClick={increment}
-                className="px-3 py-2 bg-gray-200 rounded text-lg"
+                className="w-[33px] cursor-pointer h-[38px] rounded-[31px] bg-[#42a358] text-lg text-[#fff]"
             >
                 +
             </button>
