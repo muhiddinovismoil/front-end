@@ -1,33 +1,27 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 
-const productsType = [
-    { id: 1, name: "All Plants" },
-    { id: 2, name: "New Arrivals" },
-    { id: 3, name: "Sale" },
-];
+interface ProductTypeProps {
+    text: string;
+    isActive: boolean;
+    onClick: () => void;
+}
 
-export const ProductType = () => {
-    const [selected, setSelected] = useState<number>(1);
-
+export const ProductType: React.FC<ProductTypeProps> = ({
+    text,
+    isActive,
+    onClick,
+}) => {
     return (
-        <div className="flex gap-8">
-            {productsType.map((item) => (
-                <button
-                    key={item.id}
-                    className={`relative pb-2 text-[15px] transition duration-300 ${
-                        selected === item.id
-                            ? "text-green-600 cerapro-bold-font"
-                            : "text-gray-600"
-                    }`}
-                    onClick={() => setSelected(item.id)}
-                >
-                    {item.name}
-                    {selected === item.id && (
-                        <span className="absolute left-0 bottom-0 w-full h-[3px] bg-green-600"></span>
-                    )}
-                </button>
-            ))}
-        </div>
+        <button
+            className={`relative pb-2 text-[15px] transition duration-300 ${
+                isActive ? "text-green-600 cerapro-bold-font" : "text-gray-600"
+            }`}
+            onClick={onClick}
+        >
+            {text}
+            {isActive && (
+                <span className="absolute left-0 bottom-0 w-full h-[3px] bg-green-600"></span>
+            )}
+        </button>
     );
 };

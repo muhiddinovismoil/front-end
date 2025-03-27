@@ -1,3 +1,5 @@
+import { Counter } from "@/components/client/counter";
+import { SizeButtons } from "@/components/size-button/size-buttons";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -66,7 +68,8 @@ const ProductSale = () => {
                                 <p className="cerapro-bold-font text-[22px] text-[#46a358]">
                                     $119.00
                                 </p>
-                                <div>
+                                <div className="flex items-center gap-[11px]">
+                                    <img src="/rate.svg" alt="rate icon" />
                                     <p className="leading-[107%] text-[15px] text-[#3d3d3d]">
                                         19 Customer Review
                                     </p>
@@ -88,6 +91,10 @@ const ProductSale = () => {
                                 <p className="text-[#3d3d3d] cerapro-medium-font text-[15px]">
                                     Size:
                                 </p>
+                                <SizeButtons />
+                            </div>
+                            <div>
+                                <Counter />
                             </div>
                         </div>
                     </div>

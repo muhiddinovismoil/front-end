@@ -5,17 +5,15 @@ import Hero from "@/components/client/swiper";
 import Pagination from "@/components/client/pagination";
 import { SizeList } from "@/components/client/size-list";
 import { BlogsCard } from "@/components/cards/blogs-card";
-import { ProductCard } from "@/components/cards/product-card";
-import { ProductType } from "@/components/client/product-type";
 import { CustomRangeSlider } from "@/components/client/custom-range";
 import { CategoriesList } from "@/components/client/categories-list";
-import { CategoryResponse, ProductResponse } from "@/data/types/category";
+import { CategoryResponse } from "@/data/types/category";
+import ProductWrappers from "@/components/wrapper/product-wrapper";
 
 export default async function Home() {
     const items = await fetchWrapper<CategoryResponse>("/category", {
         method: "GET",
     });
-    const { data } = await fetchWrapper<ProductResponse>("/product?limit=9");
     return (
         <>
             <main>
@@ -68,39 +66,7 @@ export default async function Home() {
                                     />
                                 </div>
                             </div>
-                            <div className="w-[100%]">
-                                <div className="flex pb-[31px] justify-between">
-                                    <ProductType />
-                                    <div className="flex items-center gap-[5px]">
-                                        <p className="text-[15px]">Short by:</p>
-                                        <select
-                                            name="sort"
-                                            id="sort"
-                                            className="outline-0"
-                                        >
-                                            <option
-                                                className="text-[15px]"
-                                                value="default"
-                                            >
-                                                Default sorting
-                                            </option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-3 gap-x-[80px] gap-y-[70px]">
-                                    {data.products.map((item) => {
-                                        return (
-                                            <ProductCard
-                                                key={item.id}
-                                                id={item.id}
-                                                name={item.title}
-                                                price={item.price}
-                                                image={item.picture}
-                                            />
-                                        );
-                                    })}
-                                </div>
-                            </div>
+                            <ProductWrappers />
                         </div>
                         <div className="text-end flex justify-end pt-[90px]">
                             <Pagination totalPages={5} />

@@ -2,7 +2,6 @@
 import React from "react";
 
 interface CategoryI {
-    id: string;
     name: string;
     count: number;
     isActive: boolean;
@@ -10,12 +9,11 @@ interface CategoryI {
 }
 
 export const СategoriesItem: React.FC<CategoryI> = ({
-    id,
     name,
     count,
     isActive,
     onClick,
-}) => {
+}: CategoryI) => {
     return (
         <li className="flex justify-between cursor-pointer" onClick={onClick}>
             <p

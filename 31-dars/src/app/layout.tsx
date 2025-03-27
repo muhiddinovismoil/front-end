@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import QueryClientProviderComponent from "@/providers/QueryClientProviderComponent";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -16,13 +17,15 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className=" antialiased">
-                <div className="flex flex-col min-h-screen justify-between">
-                    <div>
-                        <Header />
-                        {children}
+                <QueryClientProviderComponent>
+                    <div className="flex flex-col min-h-screen justify-between">
+                        <div>
+                            <Header />
+                            {children}
+                        </div>
+                        <Footer />
                     </div>
-                    <Footer />
-                </div>
+                </QueryClientProviderComponent>
             </body>
         </html>
     );

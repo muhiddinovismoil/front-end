@@ -2,6 +2,7 @@
 import { categoriesData } from "@/data/data";
 import { СategoriesItem } from "@/components/cards/categories";
 import React, { useState } from "react";
+import { Category } from "@/data/types/category";
 
 export const CategoriesList = ({ data }: { data: Category[] }) => {
     const [activeCategory, setActiveCategory] = useState<string | null>(
@@ -12,7 +13,6 @@ export const CategoriesList = ({ data }: { data: Category[] }) => {
             {data.map((item) => (
                 <СategoriesItem
                     key={item.id}
-                    id={item.id}
                     count={item.products.length}
                     name={item.name}
                     isActive={activeCategory === item.id}
