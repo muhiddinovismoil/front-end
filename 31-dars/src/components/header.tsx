@@ -21,7 +21,7 @@ export const Header = () => {
                             </Link>
                         </div>
                         <HeaderLinkWrapper />
-                        <div className="flex gap-[30px] pb-[17.7px]">
+                        <div className="flex items-center gap-[30px] pb-[17.7px]">
                             <button className="cursor-pointer">
                                 <Image
                                     width={20}
@@ -30,14 +30,17 @@ export const Header = () => {
                                     alt="search icon"
                                 />
                             </button>
-                            <button className="cursor-pointer">
+                            <Link
+                                href={"/shop/cart"}
+                                className="cursor-pointer"
+                            >
                                 <Image
                                     width={20}
                                     height={20}
                                     src="/header/cart.svg"
                                     alt="cart icon"
                                 />
-                            </button>
+                            </Link>
                             <button className="bg-[#46a358] text-[#fff] flex items-center text-[16px] font-bold gap-[4px] py-[8px] px-[18px] rounded-[6px] cursor-pointer">
                                 <Image
                                     width={20}
