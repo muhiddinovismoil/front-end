@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { getProducts } from "@/service/query/getProduct";
 import LoadingSpinner from "../loading/loading";
@@ -15,7 +15,8 @@ export const ProductSliders = () => {
             slidesPerView={5}
             spaceBetween={0}
             pagination={{ clickable: true }}
-            modules={[Pagination]}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            modules={[Pagination, Autoplay]}
             className="mySwiper custom-swiper h-[370px]"
         >
             {isLoading ? (

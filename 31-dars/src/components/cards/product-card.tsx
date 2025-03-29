@@ -14,13 +14,16 @@ export const ProductCard = ({ id, name, price, image }: ProductI) => {
                     height={200}
                 />
                 <div className="group-hover:opacity-100 opacity-0 flex gap-[10px] absolute bottom-0 left-[67px]">
-                    <button className="w-[35px]  flex justify-center items-center h-[35px] rounded-[4px] bg-[#fff]">
+                    <Link
+                        href={`/shop/${id}`}
+                        className="cursor-pointer w-[35px]  flex justify-center items-center h-[35px] rounded-[4px] bg-[#fff]"
+                    >
                         <img src="/hover/cart.svg" alt="icon" />
-                    </button>
-                    <button className="w-[35px]  flex justify-center items-center h-[35px] rounded-[4px] bg-[#fff]">
+                    </Link>
+                    <button className="cursor-pointer w-[35px]  flex justify-center items-center h-[35px] rounded-[4px] bg-[#fff]">
                         <img src="/hover/like.svg" alt="icon" />
                     </button>
-                    <button className="w-[35px]  flex justify-center items-center h-[35px] rounded-[4px] bg-[#fff]">
+                    <button className="cursor-pointer w-[35px]  flex justify-center items-center h-[35px] rounded-[4px] bg-[#fff]">
                         <img src="/hover/search.svg" alt="icon" />
                     </button>
                 </div>

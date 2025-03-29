@@ -1,7 +1,22 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import { RootState } from "@/store/store";
+import { useSelector } from "react-redux";
+import { CartCard } from "@/components/cards/cart-card";
+import { ProductSliders } from "@/components/client/product-sliders";
 
 const Cart = () => {
+    const { count, price, products } = useSelector(
+        (state: RootState) => state.product
+    );
+    const [isMounted, setIsMounted] = React.useState(false);
+    React.useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) return null;
+    console.log(products);
     return (
         <main>
             <section>
@@ -14,12 +29,37 @@ const Cart = () => {
                         <p>/ Shopping Cart</p>
                     </div>
                     <div className="flex justify-between pt-[43px]">
-                        <div className="w-[782px]">
-                            <div className="flex">
-                                <p>Products</p>
-                                <p>Price</p>
-                                <p>Quantity</p>
-                                <p>Total</p>
+                        <div className="flex flex-col w-[782px]">
+                            <div className="flex gap-[245px] pb-[11px] border-b border-b-[#42a358]">
+                                <p className="text-[#3d3d3d] cerapro-bold-font">
+                                    Products
+                                </p>
+                                <div className="flex gap-[97px]">
+                                    <p className="text-[#3d3d3d] cerapro-bold-font">
+                                        Price
+                                    </p>
+                                    <p className="text-[#3d3d3d] pl-[11px] cerapro-bold-font">
+                                        Quantity
+                                    </p>
+                                    <p className="text-[#3d3d3d] cerapro-bold-font">
+                                        Total
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="pt-[11px] flex flex-col gap-y-[10px]">
+                                {products.map((item) => {
+                                    return (
+                                        <CartCard
+                                            key={item.id}
+                                            id={item.id}
+                                            name={item.title}
+                                            img={item.picture}
+                                            price={item.price}
+                                            count={item.userCount}
+                                            discount={item.discount_value}
+                                        />
+                                    );
+                                })}
                             </div>
                         </div>
                         <div className="flex flex-col w-[332px]">
@@ -47,21 +87,23 @@ const Cart = () => {
                                                 Subtotal
                                             </p>
                                             <p className="text-[18px] leading-[89%] text-[#3d3d3d] cerapro-bold-font">
-                                                200
+                                                {price}
                                             </p>
                                         </li>
                                         <li className="flex justify-between">
                                             <p className="text-[15px] leading-[107%] text-[#3d3d3d]">
                                                 Coupon Discount
                                             </p>
-                                            <p className="text-[15px]">300</p>
+                                            <p className="text-[15px]">
+                                                (-) 00.00
+                                            </p>
                                         </li>
                                         <li className="flex justify-between pt-[6px]">
                                             <p className="text-[15px] leading-[107%] text-[#3d3d3d]">
                                                 Shiping
                                             </p>
                                             <p className="text-[18px] leading-[89%] text-[#3d3d3d] cerapro-bold-font">
-                                                400
+                                                $0.00
                                             </p>
                                         </li>
                                     </ul>
@@ -72,7 +114,7 @@ const Cart = () => {
                                 <div className="flex justify-between pb-[29px] pt-[26px]">
                                     <p className="cerapro-bold-font">Total</p>
                                     <p className="text-[18px] text-[#42a358] cerapro-bold-font">
-                                        1234132
+                                        {price}
                                     </p>
                                 </div>
                                 <div className="flex flex-col">
@@ -86,6 +128,14 @@ const Cart = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+            <section className="pt-[87px] pb-[128px]">
+                <div className="container">
+                    <h2 className="text-[17px] leading-[94%] text-[#42a358] cerapro-bold-font border-b pb-[12px] border-b-[#42a358]">
+                        Related Products
+                    </h2>
+                    <ProductSliders />
                 </div>
             </section>
         </main>
